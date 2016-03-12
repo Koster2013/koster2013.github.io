@@ -12,8 +12,12 @@
 
             </li>
 
-            <li ui-sref-active="active">
-                <a ui-sref="dashboard.window"><i class="fa fa-windows"></i> <span class="nav-label">Schaufenster</span> </a>
+            <li ng-class="{active: $state.includes('window')}">
+                <a href=""><i  class="fa fa-windows" ></i> <span class="nav-label ng-binding">Schaufenster</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('window')}">
+                    <li ><a ui-sref-active="active" ui-sref="dashboard.window" >Schaufenster anzeigen</a></li>
+                    <li ><a ui-sref-active="active" ui-sref="dashboard.window-create" >Schaufenster erstellen</a></li>
+                </ul>
             </li>
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.promotion"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Aktionen</span></a>
@@ -24,6 +28,7 @@
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.community"><i class="fa fa-users"></i> <span class="nav-label">Communities</span></a>
             </li>
+
             <li ui-sref-active="active">
                 <a ui-sref="dashboard.coupon"><i class="fa fa-file"></i> <span class="nav-label">Coupons</span></a>
             </li>
