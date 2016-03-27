@@ -120,7 +120,20 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.list', {
             url: "/list",
             templateUrl: "views/dashboard/list/list.html",
-            data: { pageTitle: 'list view' }
+            data: { pageTitle: 'list view' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/plugins/footable/footable.all.min.js', 'css/plugins/footable/footable.core.css']
+                        },
+                        {
+                            name: 'ui.footable',
+                            files: ['js/plugins/footable/angular-footable.js']
+                        }
+                    ]);
+                }
+            }
         })
         .state('dashboard.promotion', {
             url: "/promotion",
