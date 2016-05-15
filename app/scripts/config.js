@@ -19,29 +19,29 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.main', {
             url: "/main",
             templateUrl: "views/dashboard/main/main.html",
-            data: { pageTitle: 'Example view' }
+            data: {pageTitle: 'Example view'}
         })
         /* Dashboard*/
 
         .state('dashboard.community', {
             url: "/community",
             templateUrl: "views/dashboard/community/community.html",
-            data: { pageTitle: 'community view' }
+            data: {pageTitle: 'community view'}
         })
         .state('dashboard.coupon', {
             url: "/coupon",
             templateUrl: "views/dashboard/coupon/coupon.html",
-            data: { pageTitle: 'Coupon view' }
+            data: {pageTitle: 'Coupon view'}
         })
         .state('dashboard.infomaterial', {
             url: "/infomaterial",
             templateUrl: "views/dashboard/infomaterial/infomaterial.html",
-            data: { pageTitle: 'infomaterial view' }
+            data: {pageTitle: 'infomaterial view'}
         })
         .state('dashboard.list', {
             url: "/list",
             templateUrl: "views/dashboard/list/list.html",
-            data: { pageTitle: 'list view' },
+            data: {pageTitle: 'list view'},
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -59,7 +59,7 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.promotion', {
             url: "/promotion",
             templateUrl: "views/dashboard/promotion/promotion.html",
-            data: { pageTitle: 'promotion view' },
+            data: {pageTitle: 'promotion view'},
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -68,23 +68,23 @@ function config($stateProvider, $urlRouterProvider) {
                         },
                         {
                             name: 'ui.knob',
-                            files: ['js/plugins/jsKnob/jquery.knob.js','js/plugins/jsKnob/angular-knob.js']
+                            files: ['js/plugins/jsKnob/jquery.knob.js', 'js/plugins/jsKnob/angular-knob.js']
                         },
                         {
-                            files: ['css/plugins/ionRangeSlider/ion.rangeSlider.css','css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css','js/plugins/ionRangeSlider/ion.rangeSlider.min.js']
+                            files: ['css/plugins/ionRangeSlider/ion.rangeSlider.css', 'css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css', 'js/plugins/ionRangeSlider/ion.rangeSlider.min.js']
                         },
                         {
                             insertBefore: '#loadBefore',
                             name: 'localytics.directives',
-                            files: ['css/plugins/chosen/chosen.css','js/plugins/chosen/chosen.jquery.js','js/plugins/chosen/chosen.js']
+                            files: ['css/plugins/chosen/chosen.css', 'js/plugins/chosen/chosen.jquery.js', 'js/plugins/chosen/chosen.js']
                         },
                         {
                             name: 'nouislider',
-                            files: ['css/plugins/nouslider/jquery.nouislider.css','js/plugins/nouslider/jquery.nouislider.min.js','js/plugins/nouslider/angular-nouislider.js']
+                            files: ['css/plugins/nouslider/jquery.nouislider.css', 'js/plugins/nouslider/jquery.nouislider.min.js', 'js/plugins/nouslider/angular-nouislider.js']
                         },
                         {
                             name: 'datePicker',
-                            files: ['css/plugins/datapicker/angular-datapicker.css','js/plugins/datapicker/angular-datepicker.js']
+                            files: ['css/plugins/datapicker/angular-datapicker.css', 'js/plugins/datapicker/angular-datepicker.js']
                         },
                         {
                             files: ['js/plugins/jasny/jasny-bootstrap.min.js']
@@ -94,15 +94,15 @@ function config($stateProvider, $urlRouterProvider) {
                         },
                         {
                             name: 'ui.switchery',
-                            files: ['css/plugins/switchery/switchery.css','js/plugins/switchery/switchery.js','js/plugins/switchery/ng-switchery.js']
+                            files: ['css/plugins/switchery/switchery.css', 'js/plugins/switchery/switchery.js', 'js/plugins/switchery/ng-switchery.js']
                         },
                         {
                             name: 'colorpicker.module',
-                            files: ['css/plugins/colorpicker/colorpicker.css','js/plugins/colorpicker/bootstrap-colorpicker-module.js']
+                            files: ['css/plugins/colorpicker/colorpicker.css', 'js/plugins/colorpicker/bootstrap-colorpicker-module.js']
                         },
                         {
                             name: 'ngImgCrop',
-                            files: ['js/plugins/ngImgCrop/ng-img-crop.js','css/plugins/ngImgCrop/ng-img-crop.css']
+                            files: ['js/plugins/ngImgCrop/ng-img-crop.js', 'css/plugins/ngImgCrop/ng-img-crop.css']
                         },
                         {
                             serie: true,
@@ -130,29 +130,31 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.tag', {
             url: "/tag",
             templateUrl: "views/dashboard/tag/tag.html",
-            data: { pageTitle: 'tag view' }
+            data: {pageTitle: 'tag view'}
         })
         .state('dashboard.window', {
             url: "/window",
             templateUrl: "views/dashboard/window/window.html",
-            data: { pageTitle: 'Window view' }
+            data: {pageTitle: 'Window view'}
         })
 
         .state('dashboard.window-create', {
             url: "/window-create",
             templateUrl: "views/dashboard/window/window-create.html",
-            data: { pageTitle: 'Schaufenster erstellen' }
+            data: {pageTitle: 'Schaufenster erstellen'}
         })
         .state('dashboard.profile', {
             url: "/profile",
             templateUrl: "views/dashboard/profile/profile.html",
             controller: wizardCtrl,
-            data: { pageTitle: 'Wizard form' },
+            data: {pageTitle: 'Wizard form'},
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
-                            files: ['css/plugins/steps/jquery.steps.css']
+                            insertBefore: '#loadBefore',
+                            name: 'toaster',
+                            files: ['css/plugins/steps/jquery.steps.css','js/plugins/toastr/toastr.min.js', 'css/plugins/toastr/toastr.min.css']
                         }
                     ]);
                 }
@@ -161,29 +163,31 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.profile.step_one', {
             url: '/step_one',
             templateUrl: 'views/dashboard/profile/wizard/step_one.html',
-            data: { pageTitle: 'Wizard form' }
+            controller: ProfileCtrl
+            //data: {pageTitle: 'Wizard form'}
         })
         .state('dashboard.profile.step_two', {
             url: '/step_two',
             templateUrl: 'views/dashboard/profile/wizard/step_two.html',
-            data: { pageTitle: 'Wizard form' }
+            controller: ProfileCtrl
         })
         .state('dashboard.profile.step_three', {
             url: '/step_three',
             templateUrl: 'views/dashboard/profile/wizard/step_three.html',
-            data: { pageTitle: 'Wizard form' }
+            controller: ProfileCtrl
         })
 
         /* Login Register */
         .state('login', {
             url: "/login",
             templateUrl: "views/login/login.html",
-            data: { pageTitle: 'Login', specialClass: 'gray-bg'  }
+            data: {pageTitle: 'Login', specialClass: 'gray-bg'},
+            controller: InitCtrl
         })
         .state('register', {
             url: "/register",
             templateUrl: "views/register/register.html",
-            data: { pageTitle: 'Register', specialClass: 'gray-bg' }
+            data: {pageTitle: 'Register', specialClass: 'gray-bg'}
         })
 }
 
@@ -191,6 +195,6 @@ function config($stateProvider, $urlRouterProvider) {
 angular
     .module('inspinia')
     .config(config)
-    .run(function($rootScope, $state) {
+    .run(function ($rootScope, $state) {
         $rootScope.$state = $state;
     });

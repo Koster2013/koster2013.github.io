@@ -5,18 +5,18 @@
         <div class="col-lg-8">
             <div class="form-group">
                 <label>Webseite</label>
-                <input id="userName" ng-model="formData.website" name="username" type="text" class="form-control">
+                <input id="Homepage" ng-model="profile.Homepage"  type="text" class="form-control">
             </div>
             <div class="form-group">
                 <label>Logo</label>
 
-                <div class="input-group"><input type="text" class="form-control"> <span class="input-group-btn"> <button
+                <div class="input-group"><input type="text" ng-model="profile.IconUrl"  class="form-control"> <span class="input-group-btn"> <button
                         type="button" class="btn btn-primary">Upload
                 </button> </span></div>
             </div>
             <div class="form-group">
                 <label>Beschreibung</label>
-                <textarea id="userName" ng-model="formData.description" name="username" rows="4" type="text"
+                <textarea id="Beschreibung" ng-model="profile.Beschreibung"  rows="4" type="text"
                           class="form-control"/>
             </div>
         </div>
