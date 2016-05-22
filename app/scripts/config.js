@@ -184,6 +184,18 @@ function config($stateProvider, $urlRouterProvider) {
             data: {pageTitle: 'Login', specialClass: 'gray-bg'},
             controller: InitCtrl
         })
+        .state('admin', {
+            url: "/admin/:id",
+            templateUrl: "views/admin/admin.html",
+            data: {pageTitle: 'Admin', specialClass: 'gray-bg'},
+            controller: AdminCtrl
+        })
+        .state('admin-board', {
+            url: "/admin-board",
+            templateUrl: "views/admin/admin-board.html",
+            data: {pageTitle: 'Admin', specialClass: 'gray-bg'},
+            controller: AdminBoardCtrl
+        })
         .state('register', {
             url: "/register",
             templateUrl: "views/register/register.html",

@@ -264,6 +264,18 @@ function config($stateProvider, $urlRouterProvider) {
             data: {pageTitle: 'Login', specialClass: 'gray-bg'},
             controller: InitCtrl
         })
+        .state('admin', {
+            url: "/admin/:id",
+            templateUrl: "views/admin/admin.html",
+            data: {pageTitle: 'Admin', specialClass: 'gray-bg'},
+            controller: AdminCtrl
+        })
+        .state('admin-board', {
+            url: "/admin-board",
+            templateUrl: "views/admin/admin-board.html",
+            data: {pageTitle: 'Admin', specialClass: 'gray-bg'},
+            controller: AdminBoardCtrl
+        })
         .state('register', {
             url: "/register",
             templateUrl: "views/register/register.html",
@@ -466,10 +478,55 @@ function ProfileCtrl($scope, $localStorage) {
 
 };
 
-function InitCtrl($localStorage) {
+function AdminCtrl($scope, $localStorage, $stateParams, $state) {
+
+
+    console.log($state.params);
+    $scope.profiles = $localStorage.profiles;
+
+    angular.forEach($scope.profiles, function (value, key) {
+        if (value._id === $state.params.id) {
+            $scope.profile = value;
+        }
+    });
+
+};
+
+
+function AdminBoardCtrl($scope, $localStorage) {
+
+    $scope.date = new Date();
+    $scope.profiles = $localStorage.profiles;
+
+};
+
+
+function InitCtrl($localStorage, $http) {
+
+    $http.get('mockdata.json')
+        .then(function (res) {
+            $localStorage.profiles = res.data;
+        });
+
+
 
     $localStorage.profile = {
         "_id": "56c4b205fb11e67a3beffde5",
+        "News": [
+            {
+                "Titel": "Tipp des Monats",
+                "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
+                "createDatum": "2016-03-28T10:03:19.395Z"
+            }
+        ],
+        "Aktionen": [],
+        "Termine": [
+            {
+                "Titel": "Klaus Brabänder liest aus seinem Buch \"Für Eich\"",
+                "Datum": "2016-04-13T22:00:00.000Z",
+                "createDatum": "2016-04-22T11:45:37.249Z"
+            }
+        ],
         "Name": "Bücher König",
         "Strasse": "Bahnhofstr. 43",
         "PLZ": 66538,
@@ -479,12 +536,13 @@ function InitCtrl($localStorage) {
         "Email": "buecher.koenig@gmx.de",
         "Homepage": "http://www.buecher-koenig-nk.de/",
         "Ansprechperson": "Frau Anke Birk",
-        "Fax": "06821 93153 29",
-        "Impressum": "Jacopini Import GmbH\nGeschäftsführer: Enrico Jacopini\n\nAm Gneisenauflöz 1\nD-66538 Neunkirchen\n\nTel.: 06821-931530\nFax: 06821-93153-29\nE-Mail: shop@jacopini-weinhandel.de\nInternet: www.jacopini-weinhandel.de\n\nHRB 92210\nAmtsgericht Saarbrücken\nUSt-IdNr. DE 813 092 651\n\nEs gelten unsere Allgemeinen Geschäftsbedingungen.\nInhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV: Enrico Jacopini, Geschäftsführer \n\nOnline-Streitbeilegungsplattform: http://ec.europa.eu/consumers/odr/\n\nExterne Links\nFür die Inhalte externer Seiten sind einzig deren Betreiber verantwortlich.\n\nKonzeption und Gestaltung\nultrabold Kommunikationsdesign GmbH, Mannheim www.ultrabold.com\nProgrammierung\nPrimaweb www.primaweb-online.de \n\nBildnachweis\nAuf unserer Internetseite verwenden wir Bilder von fotolia.de, deren Copyright bei den Fotografen und Fotolia liegt. Im einzelnen finden Sie bei uns Bilder folgender Fotografen:\nMarco Mayer - Fotolia.com, © Melpomene",
+        "schaufenster": [
+            "http://85.214.84.247/schaufenster/SF__BuecherKoenig.jpg"
+        ],
         "IconUrl": "http://www.buecher-koenig-nk.de/sites/315830.umbreitshopsolution.de/files/buecher.koenig1.png",
         "Beschreibung": "\"Herzlich Willkommen bei Bücher König!\n\n\"\"Geistige Unterernährung ist ein ernstes Leiden. Wir haben die richtige Medizin für Sie\"\" (aus Morleys \"\"Das Haus der vergessenen Bücher\"\")\n\nLassen Sie sich von unserer schönen Buchhandlung im Herzen Neunkirchens begeistern, unsere Leidenschaft sind Literatur und gute Bücher - das seit 30 Jahren.\n\nWir sind ein literarischer und musikalischer Treffpunkt und beraten Sie immer gerne! Wir freuen uns über Ihr jahrelanges Vertrauen, die anregenden Gespräche, sei es im Laden oder bei einer unserer Veranstaltungen. Es ist schön, einige von Ihnen schon so lange zu kennen und täglich neue Literaturinteressierte kennenzulernen!\n\n\"",
         "showQrCode": false
-    };
+    }
 };
 
 /**
@@ -506,6 +564,8 @@ angular
     .controller('MainCtrl', MainCtrl)
     .controller('wizardCtrl', wizardCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
+    .controller('AdminCtrl', AdminCtrl)
+    .controller('AdminBoardCtrl', AdminBoardCtrl)
 (function (root, factory) {
     'use strict';
 

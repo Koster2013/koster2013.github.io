@@ -1,0 +1,118 @@
+<style>
+    input.ng-invalid {
+        border: 1px solid red;
+    }
+
+    input.ng-valid {
+        border: 1px solid #1ab394;
+    }
+
+    textarea.ng-invalid {
+        border: 1px solid red;
+    }
+
+    textarea.ng-valid {
+        border: 1px solid #1ab394;
+    }
+</style>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-offset-1 col-lg-10">
+        <h2>Admin Panel</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="admin-board">Admin Board</a>
+            </li>
+            <li class="active">
+                <strong>Details</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-10">
+            <fieldset>
+                <form novalidate>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label>Name des Gesschäfts </label> <span class="valid-span">*</span>
+                                <input id="Name" ng-model="profile.Name" type="text" class="form-control" required
+                                       autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label>Straße *</label>
+                                <input id="Strasse" ng-model="profile.Strasse" type="text" class="form-control"
+                                       required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Postleitzahl *</label>
+                                        <input id="PLZ" ng-model="profile.PLZ" type="number" class="form-control"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Ort *</label>
+                                        <input id="Ort" ng-model="profile.Ort" type="text" class="form-control"
+                                               required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Fax Nummer</label>
+                                        <input id="fax" ng-model="profile.Fax" type="tel" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Telefon Nummer *</label>
+                                        <input id="Telefon" ng-model="profile.Telefon" type="tel" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Webseite</label>
+                                <input id="Homepage" ng-model="profile.Homepage" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Logo</label>
+
+                                <div class="input-group"><input type="text" ng-model="profile.IconUrl"
+                                                                class="form-control"> <span class="input-group-btn"> <button
+                                        type="button" class="btn btn-primary">Upload
+                                </button> </span></div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Beschreibung</label>
+                <textarea id="Beschreibung" ng-model="profile.Beschreibung" rows="4" type="text"
+                          class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Ihr Impressum</label>
+                <textarea id="Impressum" ng-model="profile.Impressum" rows="12" type="text"
+                          class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-10" style="padding-top: 10px">
+                            <button
+                                    type="button" class="btn btn-primary btn-fill">Daten Speichern
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
