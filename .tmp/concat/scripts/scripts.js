@@ -215,12 +215,14 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.window', {
             url: "/window",
             templateUrl: "views/dashboard/window/window.html",
+            controller: WindowCtrl,
             data: {pageTitle: 'Window view'}
         })
 
         .state('dashboard.window-create', {
             url: "/window-create",
             templateUrl: "views/dashboard/window/window-create.html",
+            controller: WindowCreateCtrl,
             data: {pageTitle: 'Schaufenster erstellen'}
         })
         .state('dashboard.profile', {
@@ -481,14 +483,48 @@ function ProfileCtrl($scope, $localStorage) {
 function AdminCtrl($scope, $localStorage, $stateParams, $state) {
 
 
-    console.log($state.params);
     $scope.profiles = $localStorage.profiles;
-
     angular.forEach($scope.profiles, function (value, key) {
         if (value._id === $state.params.id) {
             $scope.profile = value;
         }
     });
+
+
+    $scope.addWindow = function () {
+        $scope.profile.schaufenster.push("url eingeben " + Date.now());
+    },
+        $scope.removeWindow = function () {
+            $scope.profile.schaufenster.splice($scope.profile.schaufenster.length - 1, 1);
+        }
+
+    $scope.addTermin = function () {
+        $scope.profile.Termine.push(
+            {
+                "Titel": "XXX" + Date.now(),
+                "Datum": "2016-04-13T22:00:00.000Z",
+                "createDatum": "2016-04-22T11:45:37.249Z"
+            }
+        );
+    },
+        $scope.removeTermin = function () {
+            $scope.profile.Termine.splice($scope.profile.Termine.length - 1, 1);
+        }
+
+
+    $scope.addNews = function () {
+        $scope.profile.News.push(
+            {
+                "Titel": "Tipp des Monats" + Date.now(),
+                "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
+                "createDatum": "2016-03-28T10:03:19.395Z"
+            }
+        );
+    },
+        $scope.removeNews = function () {
+            $scope.profile.News.splice($scope.profile.News.length - 1, 1);
+        }
+
 
 };
 
@@ -501,13 +537,30 @@ function AdminBoardCtrl($scope, $localStorage) {
 };
 
 
+function WindowCtrl($scope, $localStorage) {
+    $scope.window = {
+        "schaufenster": [
+            "http://85.214.84.247/schaufenster/SF__BuecherKoenig.jpg"
+        ]
+    }
+};
+
+function WindowCreateCtrl($scope, $localStorage) {
+    $scope.model = {
+        "schaufenster": [
+            "http://85.214.84.247/schaufenster/SF__BuecherKoenig.jpg",
+            "http://85.214.84.247/schaufenster/SF__BuecherKoenig1.jpg",
+            "http://85.214.84.247/schaufenster/SF__BuecherKoenig2.jpg"
+        ]
+    }
+};
+
 function InitCtrl($localStorage, $http) {
 
     $http.get('mockdata.json')
         .then(function (res) {
             $localStorage.profiles = res.data;
         });
-
 
 
     $localStorage.profile = {
@@ -565,6 +618,8 @@ angular
     .controller('wizardCtrl', wizardCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
     .controller('AdminCtrl', AdminCtrl)
+    .controller('WindowCtrl', WindowCtrl)
+    .controller('WindowCreateCtrl', WindowCreateCtrl)
     .controller('AdminBoardCtrl', AdminBoardCtrl)
 (function (root, factory) {
     'use strict';

@@ -135,12 +135,14 @@ function config($stateProvider, $urlRouterProvider) {
         .state('dashboard.window', {
             url: "/window",
             templateUrl: "views/dashboard/window/window.html",
+            controller: WindowCtrl,
             data: {pageTitle: 'Window view'}
         })
 
         .state('dashboard.window-create', {
             url: "/window-create",
             templateUrl: "views/dashboard/window/window-create.html",
+            controller: WindowCreateCtrl,
             data: {pageTitle: 'Schaufenster erstellen'}
         })
         .state('dashboard.profile', {
