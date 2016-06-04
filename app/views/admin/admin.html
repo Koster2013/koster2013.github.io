@@ -1,20 +1,3 @@
-<style>
-    input.ng-invalid {
-        border: 1px solid red;
-    }
-
-    input.ng-valid {
-        border: 1px solid #1ab394;
-    }
-
-    textarea.ng-invalid {
-        border: 1px solid red;
-    }
-
-    textarea.ng-valid {
-        border: 1px solid #1ab394;
-    }
-</style>
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-offset-1 col-lg-10">
         <h2>Admin Panel</h2>
@@ -28,7 +11,7 @@
         </ol>
     </div>
 </div>
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight adminboard">
     <div class="row">
         <div class="col-lg-offset-1 col-lg-10">
             <fieldset>
@@ -93,12 +76,12 @@
                             <div class="form-group">
                                 <label>Beschreibung</label>
                         <textarea id="Beschreibung" ng-model="profile.Beschreibung" rows="4" type="text"
-                                  class="form-control"/>
+                                  class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Ihr Impressum</label>
                         <textarea id="Impressum" ng-model="profile.Impressum" rows="12" type="text"
-                                  class="form-control"/>
+                                  class="form-control"> </textarea>
                             </div>
                         </div>
                         <div class="col-lg-8" style="padding-top: 10px">
@@ -111,7 +94,8 @@
                                    type="button" class="btn btn-primary" ng-click="addWindow()">Erstelle Schaufenster
                            </button>
                             <button
-                                    type="button" class="btn btn-primary" ng-click="removeWindow()">Lösche letztes Schaufenster
+                                    type="button" class="btn btn-primary" ng-click="removeWindow()">Lösche letztes
+                                Schaufenster
                             </button>
                            </span>
                                 </div>
@@ -119,7 +103,7 @@
                             <div ng-repeat="window in profile.schaufenster" class="form-group">
                                 <div class="input-group"><input type="text" ng-model="window"
                                                                 class="form-control"> <span class="input-group-btn"> <button
-                                        type="button" class="btn btn-primary" >Upload
+                                        type="button" class="btn btn-primary">Upload
                                 </button> </span>
                                 </div>
                             </div>
@@ -211,9 +195,8 @@
                             </button>
                         </div>
                     </div>
+                </form>
+            </fieldset>
         </div>
-        </form>
-        </fieldset>
     </div>
-</div>
 </div>

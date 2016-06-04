@@ -1,0 +1,236 @@
+[
+  {
+    "_id": "56c4b3a3fb11e67a3beffdfb",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "Bildergalerie",
+    "Strasse": "Hüttenbergstr. 21",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Ansprechperson": "Frau Nadine Theiss",
+    "showQrCode": false,
+    "IconUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTdI1F870xZysVg8rWzLykrAzF1fI744UAYZxIySE_2MM-1903infvTf6Pm",
+    "schaufenster": []
+  },
+  {
+    "_id": "56c4b3a3fb11e67a3beffdfc",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Ort": "Neunkirchen",
+    "Name": "Waffen und Sport Hoffmann",
+    "Strasse": "Hüttenbergstr. 32",
+    "PLZ": 66538,
+    "Ansprechperson": "Herr Reinhard Johannes Hoffmann",
+    "showQrCode": false,
+    "Homepage": "http://www.waffenhoffmann.de/50040498990c26801/index.html",
+    "IconUrl": "http://www.waffenhoffmann.de/images/s2dlogo.jpg"
+  },
+  {
+    "_id": "56c4b289fb11e67a3beffde8",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "Adler Modemärkte AG",
+    "Strasse": "Bliespromenade 3",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Ansprechperson": "Frau Simone Müller-Grasmück",
+    "showQrCode": false,
+    "IconUrl": "https://cdn.adlermode.com/_ui/adler/images/design-images/logo.png",
+    "schaufenster": []
+  },
+  {
+    "_id": "56c4b3a3fb11e67a3beffdfe",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "Café Sick",
+    "Strasse": "Oberer Markt 3",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Inhaber": "",
+    "Ansprechperson": "Frau Christine Fix",
+    "showQrCode": false,
+    "IconUrl": "http://diiicard.de/img/partnerlogos/775.jpg",
+    "schaufenster": [
+      "http://www.diiicard.de/module/upload/775/6THM_Bild661001_8.jpg",
+      "http://www.diiicard.de/module/upload/775/3THM_Bild661001_4.jpg",
+      "http://www.diiicard.de/module/upload/775/4THM_Bild661001_5.jpg",
+      "http://www.diiicard.de/module/upload/775/5THM_Bild661001_6.jpg"
+    ]
+  },
+  {
+    "_id": "56c4b289fb11e67a3beffde9",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [
+      {
+        "Titel": "Modenschau!",
+        "Datum": "2016-04-22T22:00:00.000Z",
+        "createDatum": "2016-04-19T20:21:52.402Z"
+      }
+    ],
+    "Name": "Sahra Moden GmbH",
+    "Strasse": "Hebbelstr. 1 - 3",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Ansprechperson": "Frau Susan Mohammadi-Koushaki",
+    "showQrCode": false,
+    "Homepage": "http://www.sahra-moden.de/",
+    "IconUrl": "http://www.sahra-moden.de/wordpress/wp-content/uploads/2011/08/Logo_einzeln_3.jpg",
+    "Beschreibung": "Sahra Moden in Neunkirchen ist seit mehr als 30 Jahren die führende Adresse für individuelle, qualitativ hochwertige Damenmode in den Größen 38-50.\nWir bieten eine Auswahl sorgfältig zusammengestellter Labels, die für klare Schnitte, gute Kombinierbarkeit und edle Stoffe stehen.\n\nAm jetzigen Standort haben wir eine großzügige , gemütliche Atmosphäre geschaffen, die es unserer Kundschaft ermöglicht, in angenehmem Ambiente bei einem Espresso zu stöbern, sich von unseren langjährigen Fachkräften kompetent beraten zu lassen und einzukaufen.\n\nDas Angebot wird ergänzt durch modische Accessoires. Änderungen werden, wenn nötig, von einer sehr qualifizierten Fachkraft ausgeführt, die schon seit vielen Jahren zuverlässig für uns arbeitet.\n\nEin Auswahlservice und eine telefonische Bestellmöglichkeit sind ebenfalls selbstverständlich.\n\nWir sind für Sie da:"
+  },
+  {
+    "_id": "56c4b3a3fb11e67a3beffe00",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [
+      {
+        "Titel": "Fußballturnier!",
+        "Datum": "2016-04-22T22:00:00.000Z",
+        "createDatum": "2016-04-19T20:23:25.838Z"
+      }
+    ],
+    "Name": "Decathlon",
+    "Strasse": "Zum Eisenwerk 1",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Ansprechperson": "Herr Stefan Hertkorn",
+    "showQrCode": false,
+    "IconUrl": "https://scontent-frt3-1.xx.fbcdn.net/hprofile-xpa1/v/t1.0-1/p160x160/10314562_938333046257550_1009876374492930499_n.jpg?oh=5017bf0d47add5820b389362e9c7bc51&oe=574E8EE9"
+  },
+  {
+    "_id": "56c4b205fb11e67a3beffde5",
+    "News": [
+      {
+        "Titel": "Tipp des Monats",
+        "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
+        "createDatum": "2016-03-28T10:03:19.395Z"
+      }
+    ],
+    "Aktionen": [],
+    "Termine": [
+      {
+        "Titel": "Klaus Brabänder liest aus seinem Buch \"Für Eich\"",
+        "Datum": "2016-04-13T22:00:00.000Z",
+        "createDatum": "2016-04-22T11:45:37.249Z"
+      }
+    ],
+    "Name": "Bücher König",
+    "Strasse": "Bahnhofstr. 43",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Oeffnungszeiten": "\"Mo - Fr 09:00 bis 18:30 Uhr Sa 10:00 bis 16:00 Uhr\"",
+    "Telefon": "06821 12921",
+    "Email": "buecher.koenig@gmx.de",
+    "Homepage": "http://www.buecher-koenig-nk.de/",
+    "Ansprechperson": "Frau Anke Birk",
+    "schaufenster": [
+      "http://85.214.84.247/schaufenster/SF__BuecherKoenig.jpg"
+    ],
+    "IconUrl": "http://www.buecher-koenig-nk.de/sites/315830.umbreitshopsolution.de/files/buecher.koenig1.png",
+    "Beschreibung": "\"Herzlich Willkommen bei Bücher König!\n\n\"\"Geistige Unterernährung ist ein ernstes Leiden. Wir haben die richtige Medizin für Sie\"\" (aus Morleys \"\"Das Haus der vergessenen Bücher\"\")\n\nLassen Sie sich von unserer schönen Buchhandlung im Herzen Neunkirchens begeistern, unsere Leidenschaft sind Literatur und gute Bücher - das seit 30 Jahren.\n\nWir sind ein literarischer und musikalischer Treffpunkt und beraten Sie immer gerne! Wir freuen uns über Ihr jahrelanges Vertrauen, die anregenden Gespräche, sei es im Laden oder bei einer unserer Veranstaltungen. Es ist schön, einige von Ihnen schon so lange zu kennen und täglich neue Literaturinteressierte kennenzulernen!\n\n\"",
+    "showQrCode": false
+  },
+  {
+    "_id": "56c4b3a3fb11e67a3beffdfd",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "unique - Kunstglasbläserei",
+    "Strasse": "Hüttenbergstr. 39",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Ansprechperson": "Frau Britta Schreiber",
+    "showQrCode": false,
+    "Homepage": "http://www.unique-glaskunst-neunkirchen.de/",
+    "IconUrl": "http://www.unique-glaskunst-neunkirchen.de/images/unique_logo.png",
+    "Beschreibung": "IMPULSIV\nRASTLOS\nKONSTRUKTIV\nHUNGRIG\nSOLIDE\nSELBSTLOS\nFORMSCHÖN\nZUFRIEDEN\nSTARK\nGEDULDIG\nBESCHÜTZT\n\nUND ALS BRITTA SCHREIBER AM 11.07.1984 IN NEUNKIRCHEN SAAR GEBOREN.\n\nIch bin gelernte Glasapparatebauerin und habe im Jahre 2008 meinen Gesellenbrief mit Auszeichnung erhalten.  In meinem Berufsbild werden technische Glasaparaturen für die Chemie und die Pharmainsdustrie hergestellt und repariert. In meiner Werkstatt arbeite ich ausschließlich mit technischem Borosilikatglas. Dieses Glas hat eine sehr hohe Hitzebeständigkeit und einen schönen Glanz. Aber auch Weich- und Kristallglas sowie Farb- und Tiffanyglas wird von mir bearbeitet.\nVon Anfang an reizte mich die Herausforderung eine Kollektion zu entwerfen, aus der Verbindung von traditionellem Handwerk und Gestaltungsansprüchen der Gegenwart... Die fertigen Produkte bestehen nicht nur aus Glas, sie tragen das Gefühl des Gestalters in sich... Der Zauber einer Figur kommt von ihrer Gestaltung oder dem material, aus dem sie gefertigt wurde, oder beidem."
+  },
+  {
+    "_id": "56c4b1b8fb11e67a3beffde4",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "Hair Flair",
+    "Strasse": "Bahnhofstr. 21",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Oeffnungszeiten": "\"Montag Ruhetag  Dienstag 9:00 Uhr bis 18.00 Uhr  Mittwoch 9:00 Uhr bis 18:00 Uhr Donnerstag 9:00 Uhr bis 20:00 Uhr Freitag 9:00 Uhr bis 18:00 Uhr  Samstag 9:00 Uhr bis 16:00 Uhr Sonntag geschlossen \"",
+    "Telefon": "+49 6821 3090399",
+    "Email": "info@salon-hairflair.de",
+    "Homepage": "http://www.salon-hairflair-ij.de/",
+    "IconUrl": "http://diiicard.de/img/partnerlogos/middle_758.jpg",
+    "schaufenster": [
+      "http://85.214.84.247/schaufenster/SF_HairFlair_1.gif",
+      "http://85.214.84.247/schaufenster/SF_HairFlair_3.jpg",
+      "http://85.214.84.247/schaufenster/SF_HairFlair_2.jpg"
+    ],
+    "showQrCode": false
+  },
+  {
+    "_id": "56c4b23afb11e67a3beffde6",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Name": "Schuhhaus Itt GmbH",
+    "Strasse": "Bahnhofstr. 46",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Oeffnungszeiten": "\"Mo - Fr: 09:00 - 19:00 Uhr  Sa: 09:00 - 17:00 Uhr\"",
+    "Telefon": "+49 6821 21422",
+    "Email": "info@schuhhaus-itt.de",
+    "Homepage": "http://www.schuhhaus-itt.de/",
+    "Ansprechperson": "Herr Thomas Itt",
+    "IconUrl": "http://www.schuhhaus-itt.de/media/logo.png",
+    "Beschreibung": "\"Das Schuhhaus Itt wurde 1948 von Albert Itt gegründet und 1967 von Werner Itt übernommen. 2012 geht nun in der 3. Generation Thomas Itt mit vielen frischen Ideen und klasse Schuhen an den Start.\n\nEs ist wirklich ein ganz besonderes Schuhhaus, dieses Schuhhaus Itt. Denn wo gibt es das sonst noch, dass die Omi mit den Enkeln zum Schuhkauf in das gleiche Schuhgeschäft kommt, wo man schon für sie selbst die Kinderschuhe gekauft hat. Auf den roten Elefanten durfte damals wie heute jedes Kind, und daran erinnert man sich gerne zurück.\n\nBei Itt verstand man sich von Anfang an als Schuhhaus für die ganze Familie und für jeden - mit ebenerdigem, barrierefreiem Zugang zu Schaufenstern und Laden. \n\nAls Fachgeschäft weiß man, dass jeder Fuß so einzigartig ist wie der Geschmack des Kunden. Dem wird hier durch einen individuellen, diskreten Beratungsservice Rechnung getragen. Das engagierte und gut ausgebildete Fachpersonal weiß, dass die Schuhgröße allein oft nicht aussagefähig ist.\n\nMit Komfortweitenauswahl für Damen und Herren in Mehrweiten von schmal bis extraweit, sowie einem reichhaltigen Unter- und Übergrößenangebot, wird man hier jedem Fuß gerecht, und sorgt dafür, dass der Auftritt nicht nur elegant ausfällt, sondern auch bequem und fußgesund. - Und sollte im Nachhinein doch einmal ein Problem auftauchen – 10 Tage Umtausch- und Rückgaberecht sorgen einfach immer für ein gutes Gefühl und einen zufriedenen Kunden.\n\nAber nicht nur fußgerechter Komfort wird bei Itt groß geschrieben, sondern selbstverständlich auch die aktuellen Modetrends und Eleganz mit perfekter Passform.\nFür die Damen zum Beispiel mit eleganten Schuhen von Peter Kaiser, Stuart Weitzmann, Brunella, Alexandria und vielen anderen hochwertigen, extravaganten Designerschuhen.\nSportlich wird’s mit Modellen von Waldläufer, Gabor, Semler und Mephisto.\nNachhaltige junge Mode bietet Itt mit Think, El Naturalista und Vital.\nStarke Herrenmode für jeden Männergeschmack kommt z. B. von Lloyd, Sioux, Clarks, Camel Active, Gravati und Galizio Torresi.\nFür die kindgerechte Schuhmode und eine gesunde Fußentwicklung garantieren Marken wie Ricosta und Legero Superfit. \n\nDer Reparaturservice im Schuhhaus Itt sorgt dafür, dass die Freude am guten Schuh auch für lange Zeit erhalten bleibt.\n\nSchuhhaus Itt in Neunkirchen, Bahnhofstraße - seit über 60 Jahren das besondere Schuhhaus für die ganze Familie. Kompetente Beratung, riesige Auswahl in ständig wechselnden Kollektionen, immer mit dem Ohr an den Wünschen und Bedürfnissen des Kunden und einem Auge auf die aktuellen Modetrends, Qualität, Komfort und Nachhaltigkeit.\n\nIn dieser Tradition wird Thomas Itt das Unternehmen mit neuem Schwung in der 3. Generation weiter führen.\"",
+    "showQrCode": false,
+    "schaufenster": []
+  },
+  {
+    "_id": "56c4b3a3fb11e67a3beffdff",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "Urlaubszeiten": "",
+    "Name": "Optik Lutz",
+    "Strasse": "Unterer Markt 7",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Oeffnungszeiten": "\"Montag bis Freitag 09.00 - 12.30 Uhr          und 14.00 - 18.30 Uhr   Samstag 10.00 - 16.00 Uhr\"",
+    "Telefon": "\"06821 27777 \"",
+    "Email": "opticlutz@gmx.de",
+    "Homepage": "http://s365688421.website-start.de/",
+    "Ansprechperson": "Frau Annette Lutz",
+    "IconUrl": "http://s365688421.website-start.de/s/cc_images/cache_2415433632.jpg?t=1307614629",
+    "Beschreibung": "Optic Lutz in Neunkirchen ist ein Augenoptiker-Fachgeschäft mit dem besonderen Ambiente. Gerne beraten wir Sie persönlich und ausführlich, ganz gleich, ob Sie eine neue modische Brille oder neue Kontaktlinsen benötigen. Auch bei Fragen rund um Ihre Sehstärke stehen wir Ihnen selbstverständlich zu Verfügung. Bei uns hat Qualität noch Tradition. Hierfür stehen wir mit unseren erfahrenen Mitarbeitern sowie unserem umfassenden Service, der weit über einen reinen Verkauf von Brillen hinausgeht. In unserer neu eingerichteten Sehwerkstatt können wir eine weit über normale Augenglasbestimmung hinausgehende visuelle Analyse durchführen. Diese Analyse ermöglicht die Zusammenstellung eines individuellen Trainingsprogrammes zur Verbesserung der visuellen Fähigkeiten (Visualtraining). Unser Brillensortiment ist sportlich, flippig, trendy und elegant. In unserer enormen Auswahl an Brillenfassungen ist für jeden Geschmack das richtige Model dabei. Wir führen die Modelabels Giorgio Armani, Boss, Dolce + Gabbana, Switch-it, Roberto Cavalli, s.Oliver, More + More, Bulgari sowie Colani. Modelle aufstrebender Designer: Kunoqvist, Theo Karavan, Francois Pinton, Kaos, mikli und La Matta. Bei Kinderbrillen führen wir: Hello Kitty, Die wilden Kerle, Janosch, Die Maus, Lillebi, Yakari sowie New York Yankees. In unserem Sortiment für Sportbrillen finden Sie Adidas, swiss-eye und oakley. Wir freuen uns auf Ihren Besuch, ob für einen Sehtest, neue Kontaktlinsen oder eine neue Brille. Das Team von Optic Lutz hilft Ihnen weiter.",
+    "schaufenster": [
+      "http://85.214.84.247/schaufenster/SF_OptikLutz_1.jpg",
+      "http://85.214.84.247/schaufenster/SF_OptikLutz_2.jpg"
+    ],
+    "showQrCode": false
+  },
+  {
+    "_id": "56fa119173f75c121282df86",
+    "News": [],
+    "Aktionen": [],
+    "Termine": [],
+    "IconUrl": "http://www.jacopini-weinhandel.de/templates/jacopini/img/Header-links.png",
+    "Strasse": "Am Gneisenauflöz 1",
+    "PLZ": 66538,
+    "Ort": "Neunkirchen",
+    "Name": "Jacopini Import GmbH",
+    "Inhaber": "Enrico Jacopini",
+    "Homepage": "http://www.jacopini-weinhandel.de/index.php",
+    "Email": "shop@jacopini-weinhandel.de",
+    "Telefon": "06821 931530",
+    "Fax": "06821 93153 29",
+    "Impressum": "Jacopini Import GmbH\nGeschäftsführer: Enrico Jacopini\n\nAm Gneisenauflöz 1\nD-66538 Neunkirchen\n\nTel.: 06821-931530\nFax: 06821-93153-29\nE-Mail: shop@jacopini-weinhandel.de\nInternet: www.jacopini-weinhandel.de\n\nHRB 92210\nAmtsgericht Saarbrücken\nUSt-IdNr. DE 813 092 651\n\nEs gelten unsere Allgemeinen Geschäftsbedingungen.\nInhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV: Enrico Jacopini, Geschäftsführer \n\nOnline-Streitbeilegungsplattform: http://ec.europa.eu/consumers/odr/\n\nExterne Links\nFür die Inhalte externer Seiten sind einzig deren Betreiber verantwortlich.\n\nKonzeption und Gestaltung\nultrabold Kommunikationsdesign GmbH, Mannheim www.ultrabold.com\nProgrammierung\nPrimaweb www.primaweb-online.de \n\nBildnachweis\nAuf unserer Internetseite verwenden wir Bilder von fotolia.de, deren Copyright bei den Fotografen und Fotolia liegt. Im einzelnen finden Sie bei uns Bilder folgender Fotografen:\nMarco Mayer - Fotolia.com, © Melpomene",
+    "Beschreibung": "Jacopini-Weinhandel.de - Die Aromenvielfalt Italiens\n\nMillionen Menschen lieben die italienische Küche und ihre Weine. Ich auch.",
+    "Sonderoeffnungszeiten": "",
+    "Oeffnungszeiten": "Mo – Fr:\t10.00 - 19.00 Uhr     Samstag: 10.00 – 17.00\tUhr",
+    "showQrCode": false
+  }
+]

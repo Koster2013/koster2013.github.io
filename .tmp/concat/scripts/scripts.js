@@ -489,15 +489,12 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state) {
             $scope.profile = value;
         }
     });
-
-
     $scope.addWindow = function () {
         $scope.profile.schaufenster.push("url eingeben " + Date.now());
-    },
-        $scope.removeWindow = function () {
-            $scope.profile.schaufenster.splice($scope.profile.schaufenster.length - 1, 1);
-        }
-
+    };
+    $scope.removeWindow = function () {
+        $scope.profile.schaufenster.splice($scope.profile.schaufenster.length - 1, 1);
+    };
     $scope.addTermin = function () {
         $scope.profile.Termine.push(
             {
@@ -506,12 +503,10 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state) {
                 "createDatum": "2016-04-22T11:45:37.249Z"
             }
         );
-    },
-        $scope.removeTermin = function () {
-            $scope.profile.Termine.splice($scope.profile.Termine.length - 1, 1);
-        }
-
-
+    };
+    $scope.removeTermin = function () {
+        $scope.profile.Termine.splice($scope.profile.Termine.length - 1, 1);
+    };
     $scope.addNews = function () {
         $scope.profile.News.push(
             {
@@ -520,12 +515,10 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state) {
                 "createDatum": "2016-03-28T10:03:19.395Z"
             }
         );
-    },
-        $scope.removeNews = function () {
-            $scope.profile.News.splice($scope.profile.News.length - 1, 1);
-        }
-
-
+    };
+    $scope.removeNews = function () {
+        $scope.profile.News.splice($scope.profile.News.length - 1, 1);
+    };
 };
 
 
@@ -620,7 +613,7 @@ angular
     .controller('AdminCtrl', AdminCtrl)
     .controller('WindowCtrl', WindowCtrl)
     .controller('WindowCreateCtrl', WindowCreateCtrl)
-    .controller('AdminBoardCtrl', AdminBoardCtrl)
+    .controller('AdminBoardCtrl', AdminBoardCtrl);
 (function (root, factory) {
     'use strict';
 
