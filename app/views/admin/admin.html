@@ -21,7 +21,7 @@
                         <div class="tabs-container">
 
                             <uib-tabset>
-                                <uib-tab heading="Profile Tab">
+                                <uib-tab heading="Profile">
                                     <div class="panel-body">
 
                                         <div class="col-lg-8">
@@ -31,12 +31,25 @@
                                                        class="form-control" required
                                                        autofocus>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Straße *</label>
-                                                <input id="Strasse" ng-model="profile.Strasse" type="text"
-                                                       class="form-control"
-                                                       required>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Straße *</label>
+                                                        <input id="Strasse" ng-model="profile.Strasse" type="text"
+                                                               class="form-control"
+                                                               required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Öffnungszeiten *</label>
+                                                        <input id="Oeffnungszeiten" ng-model="profile.Oeffnungszeiten" type="text"
+                                                               class="form-control"
+                                                               required>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -116,7 +129,7 @@
 
                                     </div>
                                 </uib-tab>
-                                <uib-tab heading="Schaufenster Tab">
+                                <uib-tab heading="Schaufenster">
                                     <div class="panel-body">
 
                                         <div class="col-lg-8" style="padding-top: 10px">
@@ -149,6 +162,8 @@
 
                                     </div>
                                 </uib-tab>
+
+                                <!--
                                 <uib-tab heading="Termin Tab">
                                     <div class="panel-body">
 
@@ -202,7 +217,8 @@
 
                                     </div>
                                 </uib-tab>
-                                <uib-tab heading="News Tab">
+                                -->
+                                <uib-tab heading="Meldungen">
                                     <div class="panel-body">
 
                                         <div class="col-lg-12" style="padding-top: 10px">
@@ -239,7 +255,7 @@
                                                             <div><select class="form-control m-b"
                                                                          name="account">
                                                                 <option>Aktion</option>
-                                                                <option>Event</option>
+                                                                <option>Event/Termin </option>
                                                                 <option>Neuigkeit</option>
                                                                 <option>Sonstiges</option>
 
@@ -263,6 +279,38 @@
                                                             <input id="newsCrateDate" ng-model="news.createDatum"
                                                                    type="datetime"
                                                                    class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <div class="form-group">
+                                                            <label> Begin</label>
+
+                                                            <div >
+                                                                <div class="input-group date">
+                                                                    <input type="datetime" class="form-control" date-time ng-model="sampleDate"
+                                                                           view="year" auto-close="true">
+                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Ende</label>
+
+                                                            <div >
+                                                                <div class="input-group date">
+                                                                    <input type="datetime" class="form-control" date-time ng-model="sampleDate1"
+                                                                           view="year" auto-close="true">
+                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
