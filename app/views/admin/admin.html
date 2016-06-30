@@ -43,7 +43,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Öffnungszeiten *</label>
-                                                        <input id="Oeffnungszeiten" ng-model="profile.Oeffnungszeiten" type="text"
+                                                        <input id="Oeffnungszeiten" ng-model="profile.Oeffnungszeiten"
+                                                               type="text"
                                                                class="form-control"
                                                                required>
                                                     </div>
@@ -122,8 +123,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Ihr Impressum</label>
-                        <textarea id="Impressum" ng-model="profile.Impressum" rows="12" type="text"
-                                  class="form-control"> </textarea>
+                                                <textarea id="Impressum" ng-model="profile.Impressum" rows="12" type="text" class="form-control"> </textarea>
                                             </div>
                                         </div>
 
@@ -142,7 +142,7 @@
                            </button>
                             <button
                                     type="button" class="btn btn-primary" ng-click="removeWindow()">Lösche letztes
-                                Schaufenster
+                                                                                                    Schaufenster
                             </button>
                                         <a class="btn btn-primary" ui-sref="dashboard.window"><i
                                                 class="fa fa-newspaper-o"></i> <span
@@ -163,161 +163,209 @@
                                     </div>
                                 </uib-tab>
 
-                                <!--
-                                <uib-tab heading="Termin Tab">
-                                    <div class="panel-body">
-
-                                        <div class="col-lg-8" style="padding-top: 10px">
-                                            <div class="form-group">
-                                                <label>Termin erstellen</label>
-
-                                                <div class="input-group">
-                           <span class="input-group-btn"> <button
-                                   type="button" class="btn btn-primary" ng-click="addTermin()">Erstelle
-                               Termin
-                           </button>
-                           <button
-                                   type="button" class="btn btn-primary" ng-click="removeTermin()">Lösche
-                               Letzten
-                               Termin
-                           </button>
-                                        <a class="btn btn-primary" ui-sref="dashboard.list"><i
-                                                class="fa fa-newspaper-o"></i> <span
-                                                class="nav-label"> Termin Dashboard</span></a>
-                           </span>
-                                                </div>
-                                            </div>
-                                            <div ng-repeat="termin in profile.Termine" class="form-group">
-                                                <div class="form-group">
-                                                    <label>Termin Title</label>
-                                                    <input id="terminTitle" ng-model="termin.Titel" type="text"
-                                                           class="form-control">
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Startdatum</label>
-                                                            <input id="startDate" ng-model="termin.Datum"
-                                                                   type="datetime"
-                                                                   class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Erstellungsdatum</label>
-                                                            <input id="createDate" ng-model="termin.createDatum"
-                                                                   type="datetime"
-                                                                   class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </uib-tab>
-                                -->
                                 <uib-tab heading="Meldungen">
                                     <div class="panel-body">
-
                                         <div class="col-lg-12" style="padding-top: 10px">
-                                            <div class="form-group">
-                                                <label>News erstellen</label>
-
-                                                <div class="input-group">
-                           <span class="input-group-btn"> <button
-                                   type="button" class="btn btn-primary" ng-click="addNews()">Erstelle News
-                           </button>
-                           <button
-                                   type="button" class="btn btn-primary" ng-click="removeNews()">Lösche letzte News
-                           </button>
-
-                                    <a class="btn btn-primary" ui-sref="dashboard.promotion"><i
-                                            class="fa fa-newspaper-o"></i> <span
-                                            class="nav-label">Dashboard Aktionen</span></a>
-                           </span>
-                                                </div>
-                                            </div>
-                                            <div ng-repeat="news in profile.News" class="form-group">
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                            <uib-tabset>
+                                                <uib-tab heading="Aktion">
+                                                    <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label>Termin Title</label>
-                                                            <input id="newsTitel" ng-model="news.Titel" type="text"
-                                                                   class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group"><label>Aktionsart</label>
+                                                            <label>Aktion erstellen</label>
 
-                                                            <div><select class="form-control m-b"
-                                                                         name="account">
-                                                                <option>Aktion</option>
-                                                                <option>Event/Termin </option>
-                                                                <option>Neuigkeit</option>
-                                                                <option>Sonstiges</option>
-
-                                                            </select>
+                                                            <div class="input-group">
+                                                                   <span class="input-group-btn">
+                                                                       <button type="button" class="btn btn-primary" ng-click="addAktion()">Erstelle Aktion
+                                                                       </button>
+                                                                         <button type="button" class="btn btn-primary" ng-click="removeAktion()">Lösche Letzte Aktion
+                                                                         </button>
+                                                                        <a class="btn btn-primary"
+                                                                           ui-sref="dashboard.list"><i
+                                                                                class="fa fa-newspaper-o"></i> <span
+                                                                                class="nav-label"> Aktion Dashboard</span>
+                                                                        </a>
+                                                                   </span>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Startdatum</label>
-                                                            <input id="newsBeschreibung" ng-model="news.Beschreibung"
-                                                                   type="text"
-                                                                   class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Erstellungsdatum</label>
-                                                            <input id="newsCrateDate" ng-model="news.createDatum"
-                                                                   type="datetime"
-                                                                   class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-
-                                                        <div class="form-group">
-                                                            <label> Begin</label>
-
-                                                            <div >
-                                                                <div class="input-group date">
-                                                                    <input type="datetime" class="form-control" date-time ng-model="sampleDate"
-                                                                           view="year" auto-close="true">
-                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                        <div ng-repeat="aktion in profile.Aktionen" class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Title</label>
+                                                                        <input id="aktionTitle" ng-model="aktion.Titel"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Neuigkeit Beschreibung</label>
+                                                                        <input id="aktionBeschreibung"
+                                                                               ng-model="aktion.Beschreibung"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label> Erstellungsdatum</label>
 
-                                                        </div>
+                                                                        <div class="input-group date">
+                                                                            <input type="datetime" disabled
+                                                                                   class="form-control" date-time
+                                                                                   ng-model="aktion.createDatum"
+                                                                                   view="year" auto-close="true">
+                                                                                <span class="input-group-addon"><i
+                                                                                        class="fa fa-calendar"></i></span>
+                                                                        </div>
+                                                                    </div>
 
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>Ende</label>
-
-                                                            <div >
-                                                                <div class="input-group date">
-                                                                    <input type="datetime" class="form-control" date-time ng-model="sampleDate1"
-                                                                           view="year" auto-close="true">
-                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </uib-tab>
+                                                <uib-tab heading="Event/Termin">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <label>Termin erstellen</label>
+
+                                                            <div class="input-group">
+                                                                   <span class="input-group-btn">
+                                                                       <button
+                                                                               type="button" class="btn btn-primary"
+                                                                               ng-click="addTermin()">Erstelle
+                                                                                                      Termin
+                                                                       </button>
+                                                                         <button
+                                                                                 type="button" class="btn btn-primary"
+                                                                                 ng-click="removeTermin()">Lösche
+                                                                                                           Letzten Termin
+                                                                         </button>
+                                                                        <a class="btn btn-primary"
+                                                                           ui-sref="dashboard.list"><i
+                                                                                class="fa fa-newspaper-o"></i> <span
+                                                                                class="nav-label"> Termin Dashboard</span>
+                                                                        </a>
+                                                                   </span>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-repeat="termin in profile.Termine" class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Termin Title</label>
+                                                                        <input id="terminTitle" ng-model="termin.Titel"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Termin Beschreibung</label>
+                                                                        <input id="terminBeschreibung" ng-model="termin.Beschreibung"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Startdatum</label>
+
+                                                                        <div class="input-group date">
+                                                                            <input type="datetime"
+                                                                                   class="form-control" date-time
+                                                                                   ng-model="termin.Datum"
+                                                                                   view="year" auto-close="true">
+                                                                                <span class="input-group-addon"><i
+                                                                                        class="fa fa-calendar"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Erstellungsdatum</label>
+
+                                                                        <div class="input-group date">
+                                                                            <input type="datetime" disabled
+                                                                                   class="form-control" date-time
+                                                                                   ng-model="termin.createDatum"
+                                                                                   view="year" auto-close="true">
+                                                                                <span class="input-group-addon"><i
+                                                                                        class="fa fa-calendar"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </uib-tab>
+                                                <uib-tab heading="Neuigkeit">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <label>Neuigkeit erstellen</label>
+
+                                                            <div class="input-group">
+                                                                   <span class="input-group-btn">
+                                                                       <button
+                                                                               type="button" class="btn btn-primary"
+                                                                               ng-click="addNews()">Erstelle Neueigkeit
+                                                                       </button>
+                                                                       <button
+                                                                               type="button" class="btn btn-primary"
+                                                                               ng-click="removeNews()">Lösche letzte
+                                                                                                       Neuigkeit
+                                                                       </button>
+
+                                                                        <a class="btn btn-primary"
+                                                                           ui-sref="dashboard.promotion"><i
+                                                                                class="fa fa-newspaper-o"></i> <span
+                                                                                class="nav-label">Dashboard Neuigkeiten</span>
+                                                                        </a>
+
+                                                                   </span>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-repeat="news in profile.News" class="form-group">
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Neuigkeit Titel</label>
+                                                                        <input id="newsTitel" ng-model="news.Titel"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Neuigkeit Beschreibung</label>
+                                                                        <input id="newsBeschreibung"
+                                                                               ng-model="news.Beschreibung"
+                                                                               type="text"
+                                                                               class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label> Erstellungsdatum</label>
+
+                                                                        <div class="input-group date">
+                                                                            <input type="datetime" disabled
+                                                                                   class="form-control" date-time
+                                                                                   ng-model="news.createDatum"
+                                                                                   view="year" auto-close="true">
+                                                                                <span class="input-group-addon"><i
+                                                                                        class="fa fa-calendar"></i></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </uib-tab>
+                                            </uib-tabset>
                                         </div>
-
-
                                     </div>
                                 </uib-tab>
                             </uib-tabset>
@@ -326,7 +374,7 @@
                         <div class="col-lg-10" style="padding-top: 10px">
                             <hr>
                             <button
-                                    type="button" class="btn btn-primary btn-fill">Daten Speichern
+                                    ng-click="saveData()" type="button" class="btn btn-primary btn-fill">Daten Speichern
                             </button>
                         </div>
                     </div>

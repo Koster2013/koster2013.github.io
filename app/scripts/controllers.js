@@ -23,7 +23,10 @@ function ProfileCtrl($scope, $localStorage) {
 
 };
 
-function AdminCtrl($scope, $localStorage, $stateParams, $state) {
+function AdminCtrl($scope, $localStorage, $stateParams, $state, $http) {
+
+    $scope.Aktionsart = ["Aktion", "Event/Termin", "Neuigkeit", "Sonstiges"];
+    $scope.selectedAktionsart = $scope.Aktionsart[1]; // Default the color to red
 
 
     $scope.profiles = $localStorage.profiles;
@@ -32,18 +35,34 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state) {
             $scope.profile = value;
         }
     });
+
     $scope.addWindow = function () {
         $scope.profile.schaufenster.push("url eingeben " + Date.now());
     };
     $scope.removeWindow = function () {
         $scope.profile.schaufenster.splice($scope.profile.schaufenster.length - 1, 1);
     };
+
+    $scope.addAktion = function () {
+        $scope.profile.Aktionen.push(
+            {
+                "Titel": "Bitte Titel eingeben" + Date.now(),
+                "Beschreibung": "Bitte Beschreibung eingeben",
+                "createDatum": new Date()
+            }
+        );
+    };
+    $scope.removeAktion = function () {
+        $scope.profile.Aktionen.splice($scope.profile.Aktionen.length - 1, 1);
+    };
+
     $scope.addTermin = function () {
         $scope.profile.Termine.push(
             {
-                "Titel": "XXX" + Date.now(),
+                "Titel": "Bitte Termin eingeben" + Date.now(),
+                "Beschreibung": "Bitte Beschreibung eingeben" + Date.now(),
                 "Datum": "2016-04-13T22:00:00.000Z",
-                "createDatum": "2016-04-22T11:45:37.249Z"
+                "createDatum": new Date()
             }
         );
     };
@@ -53,15 +72,31 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state) {
     $scope.addNews = function () {
         $scope.profile.News.push(
             {
-                "Titel": "Tipp des Monats" + Date.now(),
-                "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
-                "createDatum": "2016-03-28T10:03:19.395Z"
+                "Titel": "Bitte Titel eingeben" + Date.now(),
+                "Beschreibung": "Bitte Beschreibung eingeben",
+                "createDatum": new Date()
             }
         );
     };
     $scope.removeNews = function () {
         $scope.profile.News.splice($scope.profile.News.length - 1, 1);
     };
+
+    $scope.saveData = function () {
+        $http({
+            url: 'http://85.214.84.247:3000/',
+            method: "POST",
+            data: {pass: "12domestixx34", data: $scope.profiles}
+        })
+            .then(function (response) {
+                alert("success");
+            },
+            function (response) { // optional
+                alert("failed");
+            });
+    };
+
+
 };
 
 
@@ -93,7 +128,7 @@ function WindowCreateCtrl($scope, $localStorage) {
 
 function InitCtrl($localStorage, $http) {
 
-    $http.get('mockdata.json')
+    $http.get('http://85.214.84.247:3000/?pass=12domestixx34')
         .then(function (res) {
             $localStorage.profiles = res.data;
         });
