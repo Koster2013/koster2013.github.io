@@ -1,0 +1,16 @@
+<fieldset>
+    <h2>Rechtliches</h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group">
+                <label>Ihr Impressum</label>
+                <textarea id="Impressum" ng-model="profile.Impressum" rows="12" type="text"
+                          class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <fieldset class="m-t-md">
+        <a ui-sref="dashboard.profile.step_two" class="btn btn-default">Zurück</a>
+        <button type="submit" class="btn btn-primary" ng-click="save()">Speichern</button>
+    </fieldset>
+</fieldset>

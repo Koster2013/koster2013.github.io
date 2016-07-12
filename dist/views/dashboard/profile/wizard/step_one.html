@@ -1,0 +1,60 @@
+<fieldset>
+    <h2>Adress Informationen </h2>
+
+    <form novalidate>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <label>Name des Gesschäfts </label>
+                    <input id="Name" ng-model="profile.Name" type="text" class="form-control" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>Ansprechpartner </label>
+                    <input id="Ansprechperson" ng-model="profile.Ansprechperson" type="text" class="form-control" required >
+                </div>
+                <div class="form-group">
+                    <label>Straße</label>
+                    <input id="Strasse" ng-model="profile.Strasse" type="text" class="form-control" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Postleitzahl</label>
+                            <input id="PLZ" ng-model="profile.PLZ" type="number" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Ort</label>
+                            <input id="Ort" ng-model="profile.Ort" type="text" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Fax Nummer</label>
+                            <input id="fax" ng-model="profile.Fax" type="tel" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefon Nummer</label>
+                            <input id="Telefon" ng-model="profile.Telefon" type="tel" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div>
+                        <i class="fa fa-map-marker" style="font-size: 100px;color: #e5e5e5 "></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a ui-sref="dashboard.profile.step_two" class="btn btn-primary">Weiter</a>
+    </form>
+</fieldset>
