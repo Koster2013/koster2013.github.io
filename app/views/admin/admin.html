@@ -105,12 +105,15 @@
 
                                             <div class="form-group">
                                                 <label>QR Code Url </label>
-                                                <input id="Qrcode" ng-model="profile.Qrcode" type="text"
+                                                <input id="Qrcode" ng-model="profile._id" type="text"
                                                        class="form-control">
                                             </div>
                                             <div class="text-center">
-                                                <img class="responsiv"
-                                                     src="http://cdnqrcgde.s3-eu-west-1.amazonaws.com/wp-content/uploads/2013/11/jpeg.jpg">
+                                                <svg class="barcode"
+                                                     jsbarcode-value="{{profile._id}}"
+                                                     jsbarcode-textmargin="0"
+                                                     jsbarcode-fontoptions="bold">
+                                                </svg>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -383,3 +386,6 @@
         </div>
     </div>
 </div>
+<script>
+    JsBarcode(".barcode").init();
+</script>

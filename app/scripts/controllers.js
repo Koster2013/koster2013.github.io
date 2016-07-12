@@ -28,7 +28,6 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state, $http) {
     $scope.Aktionsart = ["Aktion", "Event/Termin", "Neuigkeit", "Sonstiges"];
     $scope.selectedAktionsart = $scope.Aktionsart[1]; // Default the color to red
 
-
     $scope.profiles = $localStorage.profiles;
     angular.forEach($scope.profiles, function (value, key) {
         if (value._id === $state.params.id) {
