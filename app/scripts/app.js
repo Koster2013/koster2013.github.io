@@ -7,6 +7,7 @@
         'ui.router',                    // Routing
         'ui.bootstrap' ,              // Bootstrap
         'oc.lazyLoad'    ,              // ocLazyLoad
-        'ngStorage'
+        'ngStorage',
+        'monospaced.qrcode'
     ])
 })();

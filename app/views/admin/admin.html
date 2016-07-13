@@ -108,12 +108,8 @@
                                                 <input id="Qrcode" ng-model="profile._id" type="text"
                                                        class="form-control">
                                             </div>
-                                            <div class="text-center">
-                                                <svg class="barcode"
-                                                     jsbarcode-value="{{profile._id}}"
-                                                     jsbarcode-textmargin="0"
-                                                     jsbarcode-fontoptions="bold">
-                                                </svg>
+                                            <div style="text-align: center">
+                                                <qrcode data="{{profile._id}}" size="200" ></qrcode>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -386,6 +382,3 @@
         </div>
     </div>
 </div>
-<script>
-    JsBarcode(".barcode").init();
-</script>
