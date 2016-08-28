@@ -5,8 +5,8 @@
 (function () {
     angular.module('inspinia', [
         'ui.router',                    // Routing
-        'ui.bootstrap' ,              // Bootstrap
         'oc.lazyLoad'    ,              // ocLazyLoad
+        'ui.bootstrap' ,              // Bootstrap
         'ngStorage',
         'monospaced.qrcode'
     ])
