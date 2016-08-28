@@ -125,6 +125,17 @@ function WindowCreateCtrl($scope, $localStorage) {
     }
 };
 
+
+function CouponCtrl($scope, $localStorage) {
+    console.log("init Coupon Ctrl")
+    $scope.coupons = [];
+    $scope.coupon = {
+        kategorie: "test",
+        title: "hallo welt",
+        untrtitel: "das ist der coupon"
+    }
+};
+
 function InitCtrl($localStorage, $http) {
 
     $http.get('http://85.214.84.247:3000/?pass=12domestixx34')
@@ -187,6 +198,7 @@ angular
     .controller('MainCtrl', MainCtrl)
     .controller('wizardCtrl', wizardCtrl)
     .controller('ProfileCtrl', ProfileCtrl)
+    .controller('CouponCtrl', CouponCtrl)
     .controller('AdminCtrl', AdminCtrl)
     .controller('WindowCtrl', WindowCtrl)
     .controller('WindowCreateCtrl', WindowCreateCtrl)
