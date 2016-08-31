@@ -40,9 +40,6 @@ function config($stateProvider, $urlRouterProvider) {
                             files: ['css/plugins/iCheck/custom.css','js/plugins/iCheck/icheck.min.js']
                         },
                         {
-                            files: ['js/plugins/moment/moment.min.js']
-                        },
-                        {
                             name: 'ui.knob',
                             files: ['js/plugins/jsKnob/jquery.knob.js', 'js/plugins/jsKnob/angular-knob.js']
                         },
@@ -132,9 +129,6 @@ function config($stateProvider, $urlRouterProvider) {
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        {
-                            files: ['js/plugins/moment/moment.min.js']
-                        },
                         {
                             name: 'ui.knob',
                             files: ['js/plugins/jsKnob/jquery.knob.js', 'js/plugins/jsKnob/angular-knob.js']
@@ -262,9 +256,6 @@ function config($stateProvider, $urlRouterProvider) {
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        {
-                            files: ['js/plugins/moment/moment.min.js']
-                        },
                         {
                             name: 'ui.knob',
                             files: ['js/plugins/jsKnob/jquery.knob.js', 'js/plugins/jsKnob/angular-knob.js']

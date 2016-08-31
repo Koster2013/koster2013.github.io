@@ -22,6 +22,8 @@
             <div class="tabs-container">
 
                 <uib-tabset>
+
+                  <!--Copupons verwalten ansehen -->
                     <uib-tab>
                         <uib-tab-heading>
                             Coupons verwalten
@@ -40,18 +42,18 @@
                                                 <div class="feed-element">
                                                     <div>
                                                         <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
-                                                        <strong>200 Punkte für PayBack</strong>
+                                                        <strong>200 Punkte </strong>
 
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie 200 PayBack ...</div>
-                                                        <small class="text-muted">Zwichen 22.08.2016 - 12.06.2016 gültig</small>
+                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie 200 Punkte ...</div>
+                                                        <small class="text-muted">Zwichen 22.09.2016 - 12.06.2016 gültig</small>
                                                     </div>
                                                 </div>
                                                 <div class="feed-element">
                                                     <div>
                                                         <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
-                                                        <strong>500 Punkte für PayBack</strong>
+                                                        <strong>500 Punkte </strong>
 
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie 200 PayBack ...</div>
+                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie ...</div>
                                                         <small class="text-muted">Zwichen 23.08.2016 - 31.06.2016 gültig</small>
                                                     </div>
                                                 </div>
@@ -60,7 +62,7 @@
                                                         <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
                                                         <strong>50 € geld zurück Garantie</strong>
 
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie 200 PayBack ...</div>
+                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie ...</div>
                                                         <small class="text-muted">Zwichen 12.08.2016 - 12.06.2016 gültig</small>
                                                     </div>
                                                 </div>
@@ -73,16 +75,18 @@
                         </div>
                     </uib-tab>
 
+
+                    <!--Copupons erstellen -->
                     <uib-tab>
                         <uib-tab-heading>
                             Coupons erstellen
                         </uib-tab-heading>
                         <div class="panel-body">
 
-                            <form method="get" class="form-horizontal ng-pristine ng-valid">
-                                <div class="form-group"><label class="col-sm-2 control-label">Aktionsart</label>
+                            <form class="form-horizontal " ng-submit="saveCoupon()">
+                                <div class="form-group"><label class="col-sm-2 control-label">Kategorie</label>
 
-                                    <div class="col-sm-10"><select class="form-control m-b" name="account">
+                                    <div class="col-sm-10"><select ng-model="coupon.kategorie" class="form-control m-b" name="kategorie">
                                         <option>Extrapunkte</option>
                                         <option>Mehrfachpunkte</option>
                                         <option>Rabatt</option>
@@ -92,7 +96,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Titel</label>
 
-                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                    <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.titel"></div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
 
@@ -100,7 +104,7 @@
 
                                     <div class="col-sm-10">
                                  <textarea id="untertitel" ng-model="coupon.untertitel" name="untertitel" rows="2" type="text"
-                                           class="form-control"/></div>
+                                           class="form-control" ng-model="coupon.untertitel" /></div>
                                 </div>
 
                                 <div class="hr-line-dashed"></div>
@@ -111,7 +115,7 @@
                                     <div class="col-sm-4">
                                         <div class="input-group date">
                                             <input type="datetime" class="form-control" date-time ng-model="coupon.gueltig"
-                                                   view="year" auto-close="true">
+                                                   view="year" auto-close="true" >
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
@@ -125,23 +129,27 @@
 
                                 <div class="form-group"><label class="col-sm-2 control-label">Bedingungen</label>
 
-                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                    <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.bedingungen"></div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
 
                                 <div class="form-group"><label class="col-sm-2 control-label">Hinweise</label>
 
-                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                    <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.hinweise"></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-2 control-label">Hinweise</label>
+
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-white" type="submit">Zurücksetzen</button>
+                                        <button class="btn btn-white" ng-click="resetCoupon()" >Zurücksetzen</button>
                                         <button class="btn btn-primary" type="submit">Speichern</button>
                                     </div>
                                 </div>
 
                             </form>
+
 
                         </div>
 
@@ -158,62 +166,84 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="form-group"><label class="col-sm-4 control-label">Nach Umsatz &amp; Zeit <br/>
+
+                                          <div class="col-sm-12">
+                                              <label class="col-sm-4 control-label">Nach Umsatz &amp; Zeit <br/>
                                                 <small class="text-navy">Custom elements</small>
-                                            </label>
+                                              </label>
 
                                                 <div class="col-sm-8">
-                                                    <div><label> <input icheck type="checkbox" ng-model="main.check2">
-                                                        Mindestens X Besuche in den letzten Y Wochen
-                                                    </label></div>
-                                                    <div><label> <input icheck type="checkbox" ng-model="main.checkThree3">
-                                                        Mindestens X € Umsatz in den letzten Y Wochen
-                                                    </label></div>
-                                                    <div><label> <input icheck type="checkbox" ng-model="main.checkThree2">
-                                                        Letzter Besuch vor X Wochen</label></div>
-                                                    <div><label> <input icheck type="checkbox" ng-model="main.checkThree1">
-                                                        Meine Follower / Kunden
-                                                    </label></div>
+                                                    <div> <input icheck type="checkbox" ng-model="main.check2">
+                                                      <span>
+                                                        Mindestens
+                                                        <a href="#" editable-text="bedingungenUmsatzOneBesuche" > {{ bedingungenUmsatzOneBesuche || 'empty' }} </a>
+                                                        Besuche in den letzten
+                                                        <a href="#" editable-text="bedingungenUmsatzOneWochen" > {{ bedingungenUmsatzOneWochen || 'empty' }} </a>
+                                                        Wochen
+                                                    </span>
+                                                  </div>
+                                                    <div><span> <input icheck type="checkbox" ng-model="main.checkThree3">
+                                                      Mindestens
+                                                      <a href="#" editable-text="bedingungenUmsatzTwoUmsatz" > {{ bedingungenUmsatzTwoUmsatz || 'empty' }} </a>
+                                                      Umsatz in den letzten
+                                                      <a href="#" editable-text="bedingungenUmsatzTwoWochen" > {{ bedingungenUmsatzTwoWochen || 'empty' }} </a>
+                                                      Wochen
+                                                    </span></div>
+                                                    <div>
+                                                      <span>
+                                                          <input icheck type="checkbox" ng-model="main.checkThree2">
+                                                          Letzter Besuch vor
+                                                          <a href="#" editable-text="bedingungenUmsatzThreeWochen" > {{ bedingungenUmsatzThreeWochen || 'empty' }} </a>
+                                                          Wochen
+                                                      </span>
+                                                    </div>
+                                                    <div>
+                                                      <span>
+                                                        <input icheck type="checkbox" ng-model="main.checkThree1">
+                                                          Meine Follower / Kunden
+                                                      </span>
+                                                  </div>
 
+                                                </div>
+                                          </div>
+
+                                            <div class="col-sm-12" style="padding-top: 15px;">
+                                              <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
+                                                <small class="text-navy">Custom elements</small>
+                                              </label>
+
+                                                <div class="col-sm-8">
+                                                    <div><span> <input icheck type="radio" ng-model="main.checkFour" name="radioTest">
+                                                        Im Umkreis von
+                                                        <a href="#" editable-text="bedingungenOrtOneKm" > {{ bedingungenOrtOneKm || 'empty' }} </a>
+                                                        km
+                                                    </span></div>
+                                                    <div><span> <input icheck type="radio" ng-model="main.checkFour2" name="radioTest">
+                                                        In einem PLZ Bereich von
+                                                        <a href="#" editable-text="bedingungenOrtTwoPLZ" > {{ bedingungenOrtTwoPLZ || 'empty' }} </a>
+                                                    </span></div>
                                                 </div>
                                             </div>
 
-                                            <p></p>
 
-                                            <div class="form-group"><label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
+                                            <div class="col-sm-12" style="padding-top: 15px;">
+                                              <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
                                                 <small class="text-navy">Custom elements</small>
-                                            </label>
+                                              </label>
 
                                                 <div class="col-sm-8">
-                                                    <div><label> <input icheck type="radio" ng-model="main.checkFour" name="radioTest">
-                                                        Im Umkreis von X km
-                                                    </label></div>
-                                                    <div><label> <input icheck type="radio" ng-model="main.checkFour2" name="radioTest">
-                                                        In einem PLZ Bereich von:
-                                                    </label></div>
-                                                </div>
-                                            </div>
-
-                                            <p></p>
-
-                                            <div class="form-group"><label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
-                                                <small class="text-navy">Custom elements</small>
-                                            </label>
-
-                                                <div class="col-sm-8">
-                                                    <div><label> <input icheck type="checkbox" ng-model="main.checkFour33">
+                                                    <div><span> <input icheck type="checkbox" ng-model="main.checkFour33">
                                                         Automatisch - Auf gut Glück
-                                                    </label></div>
+                                                    </span></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Speichern</button>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </uib-tab>

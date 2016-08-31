@@ -1,9 +1,4 @@
 /**
- * INSPINIA - Responsive Admin Theme
- *
- */
-
-/**
  * MainCtrl - controller
  */
 function MainCtrl($scope) {
@@ -15,12 +10,9 @@ function MainCtrl($scope) {
 function ProfileCtrl($scope, $localStorage) {
 
     $scope.profile = $localStorage.profile;
-
-
     $scope.save = function () {
         $localStorage.profile = $scope.profile;
     }
-
 };
 
 function AdminCtrl($scope, $localStorage, $stateParams, $state, $http) {
@@ -130,9 +122,45 @@ function CouponCtrl($scope, $localStorage) {
     console.log("init Coupon Ctrl")
     $scope.coupons = [];
     $scope.coupon = {
-        kategorie: "test",
-        title: "hallo welt",
-        untrtitel: "das ist der coupon"
+        kategorie: "Extrapunkte",
+        titel: "",
+        untertitel: "",
+        gueltig: moment(),
+        bedingungen: "",
+        hinweise: "",
+    }
+
+    $scope.resetCoupon = function(){
+      console.log("reset");
+      $scope.coupon = {
+          kategorie: "Extrapunkte",
+          titel: "",
+          untertitel: "",
+          gueltig: moment(),
+          bedingungen: "",
+          hinweise: "",
+      }
+    }
+
+    $scope.saveUser = function() {
+       // $scope.user already updated!
+       console.log("jopp")
+     };
+
+    $scope.bedingungenUmsatzOneBesuche = 10;
+    $scope.bedingungenUmsatzOneWochen = 4;
+
+    $scope.bedingungenUmsatzTwoUmsatz = 16;
+    $scope.bedingungenUmsatzTwoWochen = 6;
+
+    $scope.bedingungenUmsatzThreeWochen = 6;
+
+    $scope.bedingungenOrtOneKm = 50;
+    $scope.bedingungenOrtTwoPLZ = "66740,63798,66113";
+
+    $scope.saveCoupon = function(){
+      console.log("save");
+      console.log($scope.coupon);
     }
 };
 
