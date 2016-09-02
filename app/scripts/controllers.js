@@ -119,81 +119,199 @@ function WindowCreateCtrl($scope, $localStorage) {
 
 
 function CouponCtrl($scope, $localStorage) {
+
+
+    $localStorage.coupons =  [
+        {
+            "kategorie": "Extrapunkte",
+            "titel": "1111111",
+            "untertitel": "2222222",
+            "gueltig": "2016-09-02T14:14:33.563Z",
+            "bedingungen": {
+                "minXBesucheInYWochen": {
+                    "auswahl": true,
+                    "besuche": 10,
+                    "wochen": 4
+                },
+                "minXUmsatzInYWochen": {
+                    "auswahl": false,
+                    "umsatz": 16,
+                    "wochen": 6
+                },
+                "letzterBesuchVorXWochen": {
+                    "auswahl": true,
+                    "wochen": 6
+                },
+                "meineKunden": false,
+                "inXkm": {
+                    "km": 50
+                },
+                "inPLZBereich": {
+                    "auswahl": false,
+                    "km": "66740,63798,66113"
+                },
+                "auto": true
+            },
+            "hinweise": "wededwdwe"
+        },
+        {
+            "kategorie": "Extrapunkte",
+            "titel": "11111",
+            "untertitel": "2222222",
+            "gueltig": "2016-09-02T14:14:33.563Z",
+            "bedingungen": {
+                "minXBesucheInYWochen": {
+                    "auswahl": true,
+                    "besuche": 10,
+                    "wochen": 4
+                },
+                "minXUmsatzInYWochen": {
+                    "auswahl": false,
+                    "umsatz": 16,
+                    "wochen": 6
+                },
+                "letzterBesuchVorXWochen": {
+                    "auswahl": true,
+                    "wochen": 6
+                },
+                "meineKunden": false,
+                "inXkm": {
+                    "km": 50
+                },
+                "inPLZBereich": {
+                    "auswahl": false,
+                    "km": "66740,63798,66113"
+                },
+                "auto": true
+            },
+            "hinweise": "wededwdwe"
+        },
+        {
+            "kategorie": "Extrapunkte",
+            "titel": "3333333333",
+            "untertitel": "444444444",
+            "gueltig": "2016-09-02T14:14:33.563Z",
+            "bedingungen": {
+                "minXBesucheInYWochen": {
+                    "auswahl": true,
+                    "besuche": 10,
+                    "wochen": 4
+                },
+                "minXUmsatzInYWochen": {
+                    "auswahl": false,
+                    "umsatz": 16,
+                    "wochen": 6
+                },
+                "letzterBesuchVorXWochen": {
+                    "auswahl": true,
+                    "wochen": 6
+                },
+                "meineKunden": false,
+                "inXkm": {
+                    "km": 50
+                },
+                "inPLZBereich": {
+                    "auswahl": false,
+                    "km": "66740,63798,66113"
+                },
+                "auto": true
+            },
+            "hinweise": "wededwdwe"
+        }
+    ];
+
+    $scope.coupons = $localStorage.coupons;
+
+
+
+    $scope.remove = function(item) {
+        var index = $scope.coupons.indexOf(item);
+        $scope.coupons.splice(index, 1);
+    }
+
+    $scope.tabActivity=[true,false];
+
+    $scope.edit = function(item) {
+        console.log(item);
+        $scope.coupon = item;
+        $scope.tabActivity=[false,true];
+    }
+
+
+    $scope.resetCoupon = function () {
+        console.log("reset");
+        $scope.coupon = {
+            kategorie: "Extrapunkte",
+            titel: "",
+            untertitel: "",
+            gueltig: moment(),
+            bedingungen: "",
+            hinweise: "",
+        }
+    }
+
     console.log("init Coupon Ctrl")
-    $scope.coupons = [];
-    $scope.coupon = {
-        kategorie: "Extrapunkte",
-        titel: "",
-        untertitel: "",
-        gueltig: moment(),
-        bedingungen: "",
-        hinweise: "",
-    }
 
-    $scope.resetCoupon = function(){
-      console.log("reset");
-      $scope.coupon = {
-          kategorie: "Extrapunkte",
-          titel: "",
-          untertitel: "",
-          gueltig: moment(),
-          bedingungen: "",
-          hinweise: "",
-      }
-    }
+    $scope.resetCoupon();
 
+    //Umsatz zeit check
     $scope.checkBedingungenUmsatzOne = false;
-    $scope.bedingungenUmsatzOneBesuche = 10;
-    $scope.bedingungenUmsatzOneBesuche = 10;
+    $scope.checkBedingungenUmsatzTwo = false;
+    $scope.checkBedingungenUmsatzThree = false;
+    $scope.checkBedingungenUmsatzFour = false;
 
-$scope.checkBedingungenUmsatzTwo
     $scope.bedingungenUmsatzOneBesuche = 10;
     $scope.bedingungenUmsatzOneWochen = 4;
 
-$scope.checkBedingungenUmsatzThree
+
     $scope.bedingungenUmsatzTwoUmsatz = 16;
     $scope.bedingungenUmsatzTwoWochen = 6;
 
-$scope.checkBedingungenUmsatzFour
     $scope.bedingungenUmsatzThreeWochen = 6;
-$scope.checkBedingungenOrtOne
+
+
+    //Ort check
+    $scope.checkBedingungenOrtOne = true;
+    $scope.checkBedingungenOrtTwo = false;
+
     $scope.bedingungenOrtOneKm = 50;
-    $scope.checkBedingungenOrtTwo
     $scope.bedingungenOrtTwoPLZ = "66740,63798,66113";
+
+    //auto check
     $scope.checkAuto
 
-    $scope.saveCoupon = function(){
-      console.log("save");
-      console.log($scope.checkBedingungenUmsatzOne);
-      if($scope.checkBedingungenUmsatzOne == false) {
-        console.log($scope.bedingungen);
-        $scope.coupon["BedingungenUmsatzOne"]= {
-          BedingungenUmsatzOne: {
-            bedingungenUmsatzOneBesuche: $scope.bedingungenUmsatzOneBesuche,
-            bedingungenUmsatzOneWochen: $scope.bedingungenUmsatzOneWochen
-          }
+    $scope.saveCoupon = function () {
+        console.log("save");
+        $scope.coupon["bedingungen"] = {
+            minXBesucheInYWochen: {
+                auswahl: this.checkBedingungenUmsatzOne,
+                besuche: this.bedingungenUmsatzOneBesuche,
+                wochen: this.bedingungenUmsatzOneWochen
+            },
+            minXUmsatzInYWochen: {
+                auswahl: this.checkBedingungenUmsatzTwo,
+                umsatz: this.bedingungenUmsatzTwoUmsatz,
+                wochen: this.bedingungenUmsatzTwoWochen
+            },
+            letzterBesuchVorXWochen: {
+                auswahl: this.checkBedingungenUmsatzThree,
+                wochen: this.bedingungenUmsatzThreeWochen
+            },
+            meineKunden: this.checkBedingungenUmsatzFour,
+            inXkm: {
+                auswahl: this.checkBedingungenOrtOne,
+                km: this.bedingungenOrtOneKm
+            },
+            inPLZBereich: {
+                auswahl: this.checkBedingungenOrtTwo,
+                km: this.bedingungenOrtTwoPLZ
+            },
+            auto: this.checkAuto
         };
-      }
-      if($scope.checkBedingungenUmsatzTwo) {
+        console.log(angular.toJson($scope.coupon));
 
-      }
-      if($scope.checkBedingungenUmsatzThree) {
-
-      }
-      if($scope.checkBedingungenUmsatzFour) {
-
-      }
-      if($scope.checkBedingungenOrtOne) {
-
-      }
-      if($scope.checkBedingungenOrtTwo) {
-
-      }
-      if($scope.checkAuto) {
-
-      }
-
-      console.log($scope.coupon);
+        $localStorage.coupons.push($scope.coupon);
+        $scope.tabActivity=[true,false];
     }
 };
 

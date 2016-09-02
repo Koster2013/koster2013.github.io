@@ -24,7 +24,7 @@
                 <uib-tabset>
 
                   <!--Copupons verwalten ansehen -->
-                    <uib-tab>
+                    <uib-tab active="tabActivity[0]">
                         <uib-tab-heading>
                             Coupons verwalten
                         </uib-tab-heading>
@@ -38,32 +38,14 @@
                                         </div>
                                         <div class="ibox-content">
                                             <div class="feed-activity-list">
-
-                                                <div class="feed-element">
+                                                <div class="feed-element" ng-repeat="coupon in coupons" >
                                                     <div>
-                                                        <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
-                                                        <strong>200 Punkte </strong>
+                                                        <span class="pull-right text-navy"><a  ng-click="edit(coupon)"><i class="fa fa-pencil"></i> </a></span>
+                                                        <span class="pull-right text-navy"><a  ng-click="remove(coupon)"><i class="fa fa-trash"></i> </a></span>
+                                                        <strong>{{coupon.titel}} </strong>
 
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie 200 Punkte ...</div>
-                                                        <small class="text-muted">Zwichen 22.09.2016 - 12.06.2016 gültig</small>
-                                                    </div>
-                                                </div>
-                                                <div class="feed-element">
-                                                    <div>
-                                                        <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
-                                                        <strong>500 Punkte </strong>
-
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie ...</div>
-                                                        <small class="text-muted">Zwichen 23.08.2016 - 31.06.2016 gültig</small>
-                                                    </div>
-                                                </div>
-                                                <div class="feed-element">
-                                                    <div>
-                                                        <small class="pull-right text-navy"><a href="#"><i class="fa fa-trash"></i> </a></small>
-                                                        <strong>50 € geld zurück Garantie</strong>
-
-                                                        <div>Bei einem Einkauf von Spülmittel über 20€ erhalten sie ...</div>
-                                                        <small class="text-muted">Zwichen 12.08.2016 - 12.06.2016 gültig</small>
+                                                        <div>{{coupon.untertitel}}</div>
+                                                        <small class="text-muted"> gültig bis {{coupon.gueltig}}</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +59,7 @@
 
 
                     <!--Copupons erstellen -->
-                    <uib-tab>
+                    <uib-tab active="tabActivity[1]" >
                         <uib-tab-heading>
                             Coupons erstellen
                         </uib-tab-heading>
@@ -173,7 +155,7 @@
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                    <div> <input icheck type="checkbox" ng-model="checkBedingungenUmsatzOne">
+                                                        <div> <input icheck type="checkbox" ng-model="checkBedingungenUmsatzOne">
                                                       <span>
                                                         Mindestens
                                                         <a href="#" editable-text="bedingungenUmsatzOneBesuche" > {{ bedingungenUmsatzOneBesuche || 'empty' }} </a>
