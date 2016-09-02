@@ -142,24 +142,57 @@ function CouponCtrl($scope, $localStorage) {
       }
     }
 
-    $scope.saveUser = function() {
-       // $scope.user already updated!
-       console.log("jopp")
-     };
+    $scope.checkBedingungenUmsatzOne = false;
+    $scope.bedingungenUmsatzOneBesuche = 10;
+    $scope.bedingungenUmsatzOneBesuche = 10;
 
+$scope.checkBedingungenUmsatzTwo
     $scope.bedingungenUmsatzOneBesuche = 10;
     $scope.bedingungenUmsatzOneWochen = 4;
 
+$scope.checkBedingungenUmsatzThree
     $scope.bedingungenUmsatzTwoUmsatz = 16;
     $scope.bedingungenUmsatzTwoWochen = 6;
 
+$scope.checkBedingungenUmsatzFour
     $scope.bedingungenUmsatzThreeWochen = 6;
-
+$scope.checkBedingungenOrtOne
     $scope.bedingungenOrtOneKm = 50;
+    $scope.checkBedingungenOrtTwo
     $scope.bedingungenOrtTwoPLZ = "66740,63798,66113";
+    $scope.checkAuto
 
     $scope.saveCoupon = function(){
       console.log("save");
+      console.log($scope.checkBedingungenUmsatzOne);
+      if($scope.checkBedingungenUmsatzOne == false) {
+        console.log($scope.bedingungen);
+        $scope.coupon["BedingungenUmsatzOne"]= {
+          BedingungenUmsatzOne: {
+            bedingungenUmsatzOneBesuche: $scope.bedingungenUmsatzOneBesuche,
+            bedingungenUmsatzOneWochen: $scope.bedingungenUmsatzOneWochen
+          }
+        };
+      }
+      if($scope.checkBedingungenUmsatzTwo) {
+
+      }
+      if($scope.checkBedingungenUmsatzThree) {
+
+      }
+      if($scope.checkBedingungenUmsatzFour) {
+
+      }
+      if($scope.checkBedingungenOrtOne) {
+
+      }
+      if($scope.checkBedingungenOrtTwo) {
+
+      }
+      if($scope.checkAuto) {
+
+      }
+
       console.log($scope.coupon);
     }
 };
