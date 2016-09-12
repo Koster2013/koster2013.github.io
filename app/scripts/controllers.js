@@ -124,10 +124,10 @@ function CouponCtrl($scope, $localStorage) {
     $localStorage.coupons =  [
         {
             "kategorie": "Extrapunkte",
-            "titel": "1111111",
-            "untertitel": "2222222",
-            "gueltig": "2016-09-02T14:14:33.563Z",
-            "bedingungen": {
+            "titel": "Bücher.de - 5€/10€/15€ Gutschein mit 30€/60€/90€ MBW",
+            "untertitel": "Bei Bücher.de gibt es gerade 3 Neue Gutscheine für den Online Shop. Alle Gutscheine gelten bis zum 26.09.2016. 5 Euro Gutschein-Code* lautet: UTQY-5PTS-7JX4-H7...",
+            "gueltig": new Date("09-12-2016"),
+            "zielgruppe": {
                 "minXBesucheInYWochen": {
                     "auswahl": true,
                     "besuche": 10,
@@ -152,14 +152,16 @@ function CouponCtrl($scope, $localStorage) {
                 },
                 "auto": true
             },
-            "hinweise": "wededwdwe"
+            "aktiv": false,
+            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+            "hinweise": "YYYYYYYYYYYYYYY"
         },
         {
             "kategorie": "Extrapunkte",
-            "titel": "11111",
-            "untertitel": "2222222",
-            "gueltig": "2016-09-02T14:14:33.563Z",
-            "bedingungen": {
+            "titel": "40€ Montagekosten sparen für Winterkompletträder mit Continental",
+            "untertitel": "Mit dem Gutschein spart man 10€/Komplettrad bei reifendirekt.de Ich habe mich mal nach dieser Kombination umgeschaut: 205/55 R16 91H ...",
+            "gueltig": new Date("09-10-2016"),
+            "zielgruppe": {
                 "minXBesucheInYWochen": {
                     "auswahl": true,
                     "besuche": 10,
@@ -184,14 +186,16 @@ function CouponCtrl($scope, $localStorage) {
                 },
                 "auto": true
             },
-            "hinweise": "wededwdwe"
+            "aktiv": false,
+            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+            "hinweise": "YYYYYYYYYYYYYYY"
         },
         {
             "kategorie": "Extrapunkte",
-            "titel": "3333333333",
-            "untertitel": "444444444",
-            "gueltig": "2016-09-02T14:14:33.563Z",
-            "bedingungen": {
+            "titel": "Delinero: 30€ Gutschein mit 60€ MBW + 9% Cashback",
+            "untertitel": "Aktuell erhaltet ihr einen 30€ Gutschein mit 60€ Mindestbestellwert für Delinero, zusätzlich erhaltet ihr 9% Shoop Cashback auf jede Bestellung oben drauf......",
+            "gueltig": new Date("09-09-2016"),
+            "zielgruppe": {
                 "minXBesucheInYWochen": {
                     "auswahl": true,
                     "besuche": 10,
@@ -216,12 +220,26 @@ function CouponCtrl($scope, $localStorage) {
                 },
                 "auto": true
             },
-            "hinweise": "wededwdwe"
+            "aktiv": false,
+            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+            "hinweise": "YYYYYYYYYYYY"
         }
     ];
 
     $scope.coupons = $localStorage.coupons;
 
+    $scope.formatDate = function(date) {
+        return moment(date).format("DD.MM.YYYY");
+    }
+
+
+    $scope.changeStatus = function(coupon) {
+        if (coupon["aktiv"] == false) {
+            coupon["aktiv"] = true;
+        } else {
+            coupon["aktiv"] = false;
+        }
+    }
 
 
     $scope.remove = function(item) {
@@ -240,77 +258,93 @@ function CouponCtrl($scope, $localStorage) {
 
     $scope.resetCoupon = function () {
         console.log("reset");
+        console.log();
+        $scope.coupon["titel"] = "spast";
+    }
+
+    $scope.createCoupon = function () {
+        console.log("createCoupon");
+        console.log();
         $scope.coupon = {
             kategorie: "Extrapunkte",
             titel: "",
             untertitel: "",
-            gueltig: moment(),
+            gueltig: new Date(),
+            zielgruppe: {},
             bedingungen: "",
-            hinweise: "",
+            aktiv: false,
+            hinweise: ""
         }
     }
 
-    console.log("init Coupon Ctrl")
-
-    $scope.resetCoupon();
-
     //Umsatz zeit check
-    $scope.checkBedingungenUmsatzOne = false;
-    $scope.checkBedingungenUmsatzTwo = false;
-    $scope.checkBedingungenUmsatzThree = false;
-    $scope.checkBedingungenUmsatzFour = false;
+    $scope.checkZielgruppeUmsatzOne = false;
+    $scope.checkZielgruppeUmsatzTwo = false;
+    $scope.checkZielgruppeUmsatzThree = false;
+    $scope.checkZielgruppeUmsatzFour = false;
 
-    $scope.bedingungenUmsatzOneBesuche = 10;
-    $scope.bedingungenUmsatzOneWochen = 4;
+    $scope.zielgruppeUmsatzOneBesuche = 10;
+    $scope.zielgruppeUmsatzOneWochen = 4;
 
 
-    $scope.bedingungenUmsatzTwoUmsatz = 16;
-    $scope.bedingungenUmsatzTwoWochen = 6;
+    $scope.zielgruppeUmsatzTwoUmsatz = 16;
+    $scope.zielgruppeUmsatzTwoWochen = 6;
 
-    $scope.bedingungenUmsatzThreeWochen = 6;
+    $scope.zielgruppeUmsatzThreeWochen = 6;
 
 
     //Ort check
-    $scope.checkBedingungenOrtOne = true;
-    $scope.checkBedingungenOrtTwo = false;
+    $scope.checkZielgruppeOrtOne = true;
+    $scope.checkZielgruppeOrtTwo = false;
 
-    $scope.bedingungenOrtOneKm = 50;
-    $scope.bedingungenOrtTwoPLZ = "66740,63798,66113";
+    $scope.zielgruppeOrtOneKm = 50;
+    $scope.zielgruppeOrtTwoPLZ = "66740,63798,66113";
 
     //auto check
     $scope.checkAuto
 
     $scope.saveCoupon = function () {
         console.log("save");
-        $scope.coupon["bedingungen"] = {
+        $scope.coupon["zielgruppe"] = {
             minXBesucheInYWochen: {
-                auswahl: this.checkBedingungenUmsatzOne,
-                besuche: this.bedingungenUmsatzOneBesuche,
-                wochen: this.bedingungenUmsatzOneWochen
+                auswahl: this.checkZielgruppeUmsatzOne,
+                besuche: this.zielgruppeUmsatzOneBesuche,
+                wochen: this.zielgruppeUmsatzOneWochen
             },
             minXUmsatzInYWochen: {
-                auswahl: this.checkBedingungenUmsatzTwo,
-                umsatz: this.bedingungenUmsatzTwoUmsatz,
-                wochen: this.bedingungenUmsatzTwoWochen
+                auswahl: this.checkZielgruppeUmsatzTwo,
+                umsatz: this.zielgruppeUmsatzTwoUmsatz,
+                wochen: this.zielgruppeUmsatzTwoWochen
             },
             letzterBesuchVorXWochen: {
-                auswahl: this.checkBedingungenUmsatzThree,
-                wochen: this.bedingungenUmsatzThreeWochen
+                auswahl: this.checkZielgruppeUmsatzThree,
+                wochen: this.zielgruppeUmsatzThreeWochen
             },
-            meineKunden: this.checkBedingungenUmsatzFour,
+            meineKunden: this.checkZielgruppeUmsatzFour,
             inXkm: {
-                auswahl: this.checkBedingungenOrtOne,
-                km: this.bedingungenOrtOneKm
+                auswahl: this.checkZielgruppeOrtOne,
+                km: this.zielgruppeOrtOneKm
             },
             inPLZBereich: {
-                auswahl: this.checkBedingungenOrtTwo,
-                km: this.bedingungenOrtTwoPLZ
+                auswahl: this.checkZielgruppeOrtTwo,
+                km: this.zielgruppeOrtTwoPLZ
             },
             auto: this.checkAuto
         };
-        console.log(angular.toJson($scope.coupon));
 
-        $localStorage.coupons.push($scope.coupon);
+        var doubleElement = null;
+        for (var x = 0; x < ($localStorage.coupons.length); x++) {
+            if ($localStorage.coupons[x] === $scope.coupon) {
+                doubleElement = x;
+            }
+        }
+
+        if(doubleElement != null) {
+            $localStorage.coupons.slice($localStorage.coupons.indexOf(doubleElement),1,$scope.coupon);
+        }else {
+            $localStorage.coupons.push($scope.coupon);
+        }
+
         $scope.tabActivity=[true,false];
     }
 };

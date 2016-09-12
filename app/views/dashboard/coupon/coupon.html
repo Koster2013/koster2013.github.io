@@ -38,14 +38,35 @@
                                         </div>
                                         <div class="ibox-content">
                                             <div class="feed-activity-list">
-                                                <div class="feed-element" ng-repeat="coupon in coupons" >
+                                                <div class="feed-element" ng-repeat="coupon in coupons track by $index" >
                                                     <div>
-                                                        <span class="pull-right text-navy"><a  ng-click="edit(coupon)"><i class="fa fa-pencil"></i> </a></span>
-                                                        <span class="pull-right text-navy"><a  ng-click="remove(coupon)"><i class="fa fa-trash"></i> </a></span>
-                                                        <strong>{{coupon.titel}} </strong>
-
+                                                        <li uib-dropdown="" class="dropdown pull-right" style="list-style-type: none;">
+                                                            <a class="count-info dropdown-toggle" href="" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+                                                                <i class="fa fa-gear fa-2x"></i>
+                                                            </a>
+                                                            <ul class="dropdown-alerts dropdown-menu" uib-dropdown-menu="" style="position: relative">
+                                                                <li>
+                                                                    <a ng-click="edit(coupon)">
+                                                                        <i class="fa fa-pencil"></i> Coupon bearbeiten
+                                                                    </a>
+                                                                </li>
+                                                                <li class="divider"></li>
+                                                                <li>
+                                                                    <a  ng-click="remove(coupon)" >
+                                                                        <i class="fa fa-trash"></i> Coupon löschen
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a  ng-click="changeStatus(coupon)" >
+                                                                        <i class="fa fa-play"></i> Status ändern
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <h3>{{coupon.titel}} </h3>
                                                         <div>{{coupon.untertitel}}</div>
-                                                        <small class="text-muted"> gültig bis {{coupon.gueltig}}</small>
+                                                        <small class="text-muted"> gültig bis {{formatDate(coupon.gueltig)}}</small>
+                                                        <small class="text-navy"> aktiv: {{ (coupon.aktiv === true) ? "Ja" : "Nein"}}</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,7 +80,7 @@
 
 
                     <!--Copupons erstellen -->
-                    <uib-tab active="tabActivity[1]" >
+                    <uib-tab active="tabActivity[1]" ng-click="createCoupon()">
                         <uib-tab-heading>
                             Coupons erstellen
                         </uib-tab-heading>
@@ -119,10 +140,6 @@
 
                                     <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.hinweise"></div>
                                 </div>
-                                <div class="form-group"><label class="col-sm-2 control-label">Hinweise</label>
-
-                                </div>
-
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
                                         <button class="btn btn-white" ng-click="resetCoupon()" >Zurücksetzen</button>
@@ -155,33 +172,33 @@
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                        <div> <input icheck type="checkbox" ng-model="checkBedingungenUmsatzOne">
+                                                        <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne">
                                                       <span>
                                                         Mindestens
-                                                        <a href="#" editable-text="bedingungenUmsatzOneBesuche" > {{ bedingungenUmsatzOneBesuche || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" > {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
                                                         Besuche in den letzten
-                                                        <a href="#" editable-text="bedingungenUmsatzOneWochen" > {{ bedingungenUmsatzOneWochen || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneWochen" > {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
                                                         Wochen
                                                     </span>
                                                   </div>
-                                                    <div><span> <input icheck type="checkbox" ng-model="checkBedingungenUmsatzTwo">
+                                                    <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo">
                                                       Mindestens
-                                                      <a href="#" editable-text="bedingungenUmsatzTwoUmsatz" > {{ bedingungenUmsatzTwoUmsatz || 'empty' }} </a>
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz" > {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
                                                       Umsatz in den letzten
-                                                      <a href="#" editable-text="bedingungenUmsatzTwoWochen" > {{ bedingungenUmsatzTwoWochen || 'empty' }} </a>
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoWochen" > {{ zielgruppeUmsatzTwoWochen || 'empty' }} </a>
                                                       Wochen
                                                     </span></div>
                                                     <div>
                                                       <span>
-                                                          <input icheck type="checkbox" ng-model="checkBedingungenUmsatzThree">
+                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree">
                                                           Letzter Besuch vor
-                                                          <a href="#" editable-text="bedingungenUmsatzThreeWochen" > {{ bedingungenUmsatzThreeWochen || 'empty' }} </a>
+                                                          <a href="#" editable-text="zielgruppeUmsatzThreeWochen" > {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
                                                           Wochen
                                                       </span>
                                                     </div>
                                                     <div>
                                                       <span>
-                                                        <input icheck type="checkbox" ng-model="checkBedingungenUmsatzFour">
+                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour">
                                                           Meine Follower / Kunden
                                                       </span>
                                                   </div>
@@ -195,14 +212,14 @@
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                    <div><span> <input icheck type="radio" ng-model="checkBedingungenOrtOne" name="radioTest">
+                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest">
                                                         Im Umkreis von
-                                                        <a href="#" editable-text="bedingungenOrtOneKm" > {{ bedingungenOrtOneKm || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeOrtOneKm" > {{ zielgruppeOrtOneKm || 'empty' }} </a>
                                                         km
                                                     </span></div>
-                                                    <div><span> <input icheck type="radio" ng-model="checkBedingungenOrtTwo" name="radioTest">
+                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest">
                                                         In einem PLZ Bereich von
-                                                        <a href="#" editable-text="bedingungenOrtTwoPLZ" > {{ bedingungenOrtTwoPLZ || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeOrtTwoPLZ" > {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
                                                     </span></div>
                                                 </div>
                                             </div>
