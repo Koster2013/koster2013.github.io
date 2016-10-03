@@ -122,7 +122,7 @@ function CouponCtrl($scope, $localStorage) {
         "kategorie": "Extrapunkte",
         "titel": "Bücher.de - 5€/10€/15€ Gutschein mit 30€/60€/90€ MBW",
         "untertitel": "Bei Bücher.de gibt es gerade 3 Neue Gutscheine für den Online Shop. Alle Gutscheine gelten bis zum 26.09.2016. 5 Euro Gutschein-Code* lautet: UTQY-5PTS-7JX4-H7...",
-        "gueltig": new Date("09-12-2016"),
+        "gueltig": new Date(),
         "zielgruppe": {
             "minXBesucheInYWochen": {
                 "auswahl": true,
@@ -155,7 +155,7 @@ function CouponCtrl($scope, $localStorage) {
         "kategorie": "Extrapunkte",
         "titel": "40€ Montagekosten sparen für Winterkompletträder mit Continental",
         "untertitel": "Mit dem Gutschein spart man 10€/Komplettrad bei reifendirekt.de Ich habe mich mal nach dieser Kombination umgeschaut: 205/55 R16 91H ...",
-        "gueltig": new Date("09-10-2016"),
+        "gueltig": new Date(),
         "zielgruppe": {
             "minXBesucheInYWochen": {
                 "auswahl": true,
@@ -188,7 +188,7 @@ function CouponCtrl($scope, $localStorage) {
         "kategorie": "Extrapunkte",
         "titel": "Delinero: 30€ Gutschein mit 60€ MBW + 9% Cashback",
         "untertitel": "Aktuell erhaltet ihr einen 30€ Gutschein mit 60€ Mindestbestellwert für Delinero, zusätzlich erhaltet ihr 9% Shoop Cashback auf jede Bestellung oben drauf......",
-        "gueltig": new Date("09-09-2016"),
+        "gueltig": new Date(),
         "zielgruppe": {
             "minXBesucheInYWochen": {
                 "auswahl": true,
@@ -298,16 +298,17 @@ function CouponCtrl($scope, $localStorage) {
     $scope.test123 = false;
 
     $scope.disabledAll = function() {
-      if(this.checkAuto === true){
-        this.checkZielgruppeUmsatzOne = false;
-        this.checkZielgruppeUmsatzTwo = false;
-        this.checkZielgruppeUmsatzThree = false;
-        this.checkZielgruppeUmsatzFour = false;
-        this.checkZielgruppeOrtOne = false;
-        this.checkZielgruppeOrtTwo = false;
-        this.disabledChecks = true;
-      }else {
-        this.disabledChecks = false;
+        if (this.checkAuto === true) {
+            this.checkZielgruppeUmsatzOne = false;
+            this.checkZielgruppeUmsatzTwo = false;
+            this.checkZielgruppeUmsatzThree = false;
+            this.checkZielgruppeUmsatzFour = false;
+            this.checkZielgruppeOrtOne = false;
+            this.checkZielgruppeOrtTwo = false;
+            this.disabledChecks = true;
+        } else {
+            this.disabledChecks = false;
+        }
     }
 
     $scope.saveCoupon = function() {
