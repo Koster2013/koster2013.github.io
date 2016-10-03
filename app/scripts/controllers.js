@@ -10,7 +10,7 @@ function MainCtrl($scope) {
 function ProfileCtrl($scope, $localStorage) {
 
     $scope.profile = $localStorage.profile;
-    $scope.save = function () {
+    $scope.save = function() {
         $localStorage.profile = $scope.profile;
     }
 };
@@ -21,70 +21,67 @@ function AdminCtrl($scope, $localStorage, $stateParams, $state, $http) {
     $scope.selectedAktionsart = $scope.Aktionsart[1]; // Default the color to red
 
     $scope.profiles = $localStorage.profiles;
-    angular.forEach($scope.profiles, function (value, key) {
+    angular.forEach($scope.profiles, function(value, key) {
         if (value._id === $state.params.id) {
             $scope.profile = value;
         }
     });
 
-    $scope.addWindow = function () {
+    $scope.addWindow = function() {
         $scope.profile.schaufenster.push("url eingeben " + Date.now());
     };
-    $scope.removeWindow = function () {
+    $scope.removeWindow = function() {
         $scope.profile.schaufenster.splice($scope.profile.schaufenster.length - 1, 1);
     };
 
-    $scope.addAktion = function () {
-        $scope.profile.Aktionen.push(
-            {
-                "Titel": "Bitte Titel eingeben" + Date.now(),
-                "Beschreibung": "Bitte Beschreibung eingeben",
-                "createDatum": new Date()
-            }
-        );
+    $scope.addAktion = function() {
+        $scope.profile.Aktionen.push({
+            "Titel": "Bitte Titel eingeben" + Date.now(),
+            "Beschreibung": "Bitte Beschreibung eingeben",
+            "createDatum": new Date()
+        });
     };
-    $scope.removeAktion = function () {
+    $scope.removeAktion = function() {
         $scope.profile.Aktionen.splice($scope.profile.Aktionen.length - 1, 1);
     };
 
-    $scope.addTermin = function () {
-        $scope.profile.Termine.push(
-            {
-                "Titel": "Bitte Termin eingeben" + Date.now(),
-                "Beschreibung": "Bitte Beschreibung eingeben" + Date.now(),
-                "Datum": "2016-04-13T22:00:00.000Z",
-                "createDatum": new Date()
-            }
-        );
+    $scope.addTermin = function() {
+        $scope.profile.Termine.push({
+            "Titel": "Bitte Termin eingeben" + Date.now(),
+            "Beschreibung": "Bitte Beschreibung eingeben" + Date.now(),
+            "Datum": "2016-04-13T22:00:00.000Z",
+            "createDatum": new Date()
+        });
     };
-    $scope.removeTermin = function () {
+    $scope.removeTermin = function() {
         $scope.profile.Termine.splice($scope.profile.Termine.length - 1, 1);
     };
-    $scope.addNews = function () {
-        $scope.profile.News.push(
-            {
-                "Titel": "Bitte Titel eingeben" + Date.now(),
-                "Beschreibung": "Bitte Beschreibung eingeben",
-                "createDatum": new Date()
-            }
-        );
+    $scope.addNews = function() {
+        $scope.profile.News.push({
+            "Titel": "Bitte Titel eingeben" + Date.now(),
+            "Beschreibung": "Bitte Beschreibung eingeben",
+            "createDatum": new Date()
+        });
     };
-    $scope.removeNews = function () {
+    $scope.removeNews = function() {
         $scope.profile.News.splice($scope.profile.News.length - 1, 1);
     };
 
-    $scope.saveData = function () {
+    $scope.saveData = function() {
         $http({
-            url: 'http://85.214.84.247:3000/',
-            method: "POST",
-            data: {pass: "12domestixx34", data: $scope.profiles}
-        })
-            .then(function (response) {
-                alert("success");
-            },
-            function (response) { // optional
-                alert("failed");
-            });
+                url: 'http://85.214.84.247:3000/',
+                method: "POST",
+                data: {
+                    pass: "12domestixx34",
+                    data: $scope.profiles
+                }
+            })
+            .then(function(response) {
+                    alert("success");
+                },
+                function(response) { // optional
+                    alert("failed");
+                });
     };
 
 
@@ -121,110 +118,106 @@ function WindowCreateCtrl($scope, $localStorage) {
 function CouponCtrl($scope, $localStorage) {
 
 
-    $localStorage.coupons =  [
-        {
-            "kategorie": "Extrapunkte",
-            "titel": "Bücher.de - 5€/10€/15€ Gutschein mit 30€/60€/90€ MBW",
-            "untertitel": "Bei Bücher.de gibt es gerade 3 Neue Gutscheine für den Online Shop. Alle Gutscheine gelten bis zum 26.09.2016. 5 Euro Gutschein-Code* lautet: UTQY-5PTS-7JX4-H7...",
-            "gueltig": new Date("09-12-2016"),
-            "zielgruppe": {
-                "minXBesucheInYWochen": {
-                    "auswahl": true,
-                    "besuche": 10,
-                    "wochen": 4
-                },
-                "minXUmsatzInYWochen": {
-                    "auswahl": false,
-                    "umsatz": 16,
-                    "wochen": 6
-                },
-                "letzterBesuchVorXWochen": {
-                    "auswahl": true,
-                    "wochen": 6
-                },
-                "meineKunden": false,
-                "inXkm": {
-                    "km": 50
-                },
-                "inPLZBereich": {
-                    "auswahl": false,
-                    "km": "66740,63798,66113"
-                },
-                "auto": true
+    $localStorage.coupons = [{
+        "kategorie": "Extrapunkte",
+        "titel": "Bücher.de - 5€/10€/15€ Gutschein mit 30€/60€/90€ MBW",
+        "untertitel": "Bei Bücher.de gibt es gerade 3 Neue Gutscheine für den Online Shop. Alle Gutscheine gelten bis zum 26.09.2016. 5 Euro Gutschein-Code* lautet: UTQY-5PTS-7JX4-H7...",
+        "gueltig": new Date("09-12-2016"),
+        "zielgruppe": {
+            "minXBesucheInYWochen": {
+                "auswahl": true,
+                "besuche": 10,
+                "wochen": 4
             },
-            "aktiv": false,
-            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
-            "hinweise": "YYYYYYYYYYYYYYY"
+            "minXUmsatzInYWochen": {
+                "auswahl": false,
+                "umsatz": 16,
+                "wochen": 6
+            },
+            "letzterBesuchVorXWochen": {
+                "auswahl": true,
+                "wochen": 6
+            },
+            "meineKunden": false,
+            "inXkm": {
+                "km": 50
+            },
+            "inPLZBereich": {
+                "auswahl": false,
+                "km": "66740,63798,66113"
+            },
+            "auto": true
         },
-        {
-            "kategorie": "Extrapunkte",
-            "titel": "40€ Montagekosten sparen für Winterkompletträder mit Continental",
-            "untertitel": "Mit dem Gutschein spart man 10€/Komplettrad bei reifendirekt.de Ich habe mich mal nach dieser Kombination umgeschaut: 205/55 R16 91H ...",
-            "gueltig": new Date("09-10-2016"),
-            "zielgruppe": {
-                "minXBesucheInYWochen": {
-                    "auswahl": true,
-                    "besuche": 10,
-                    "wochen": 4
-                },
-                "minXUmsatzInYWochen": {
-                    "auswahl": false,
-                    "umsatz": 16,
-                    "wochen": 6
-                },
-                "letzterBesuchVorXWochen": {
-                    "auswahl": true,
-                    "wochen": 6
-                },
-                "meineKunden": false,
-                "inXkm": {
-                    "km": 50
-                },
-                "inPLZBereich": {
-                    "auswahl": false,
-                    "km": "66740,63798,66113"
-                },
-                "auto": true
+        "aktiv": false,
+        "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+        "hinweise": "YYYYYYYYYYYYYYY"
+    }, {
+        "kategorie": "Extrapunkte",
+        "titel": "40€ Montagekosten sparen für Winterkompletträder mit Continental",
+        "untertitel": "Mit dem Gutschein spart man 10€/Komplettrad bei reifendirekt.de Ich habe mich mal nach dieser Kombination umgeschaut: 205/55 R16 91H ...",
+        "gueltig": new Date("09-10-2016"),
+        "zielgruppe": {
+            "minXBesucheInYWochen": {
+                "auswahl": true,
+                "besuche": 10,
+                "wochen": 4
             },
-            "aktiv": false,
-            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
-            "hinweise": "YYYYYYYYYYYYYYY"
+            "minXUmsatzInYWochen": {
+                "auswahl": false,
+                "umsatz": 16,
+                "wochen": 6
+            },
+            "letzterBesuchVorXWochen": {
+                "auswahl": true,
+                "wochen": 6
+            },
+            "meineKunden": false,
+            "inXkm": {
+                "km": 50
+            },
+            "inPLZBereich": {
+                "auswahl": false,
+                "km": "66740,63798,66113"
+            },
+            "auto": true
         },
-        {
-            "kategorie": "Extrapunkte",
-            "titel": "Delinero: 30€ Gutschein mit 60€ MBW + 9% Cashback",
-            "untertitel": "Aktuell erhaltet ihr einen 30€ Gutschein mit 60€ Mindestbestellwert für Delinero, zusätzlich erhaltet ihr 9% Shoop Cashback auf jede Bestellung oben drauf......",
-            "gueltig": new Date("09-09-2016"),
-            "zielgruppe": {
-                "minXBesucheInYWochen": {
-                    "auswahl": true,
-                    "besuche": 10,
-                    "wochen": 4
-                },
-                "minXUmsatzInYWochen": {
-                    "auswahl": false,
-                    "umsatz": 16,
-                    "wochen": 6
-                },
-                "letzterBesuchVorXWochen": {
-                    "auswahl": true,
-                    "wochen": 6
-                },
-                "meineKunden": false,
-                "inXkm": {
-                    "km": 50
-                },
-                "inPLZBereich": {
-                    "auswahl": false,
-                    "km": "66740,63798,66113"
-                },
-                "auto": true
+        "aktiv": false,
+        "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+        "hinweise": "YYYYYYYYYYYYYYY"
+    }, {
+        "kategorie": "Extrapunkte",
+        "titel": "Delinero: 30€ Gutschein mit 60€ MBW + 9% Cashback",
+        "untertitel": "Aktuell erhaltet ihr einen 30€ Gutschein mit 60€ Mindestbestellwert für Delinero, zusätzlich erhaltet ihr 9% Shoop Cashback auf jede Bestellung oben drauf......",
+        "gueltig": new Date("09-09-2016"),
+        "zielgruppe": {
+            "minXBesucheInYWochen": {
+                "auswahl": true,
+                "besuche": 10,
+                "wochen": 4
             },
-            "aktiv": false,
-            "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
-            "hinweise": "YYYYYYYYYYYY"
-        }
-    ];
+            "minXUmsatzInYWochen": {
+                "auswahl": false,
+                "umsatz": 16,
+                "wochen": 6
+            },
+            "letzterBesuchVorXWochen": {
+                "auswahl": true,
+                "wochen": 6
+            },
+            "meineKunden": false,
+            "inXkm": {
+                "km": 50
+            },
+            "inPLZBereich": {
+                "auswahl": false,
+                "km": "66740,63798,66113"
+            },
+            "auto": true
+        },
+        "aktiv": false,
+        "bedingungen": "XXXXXXXXYYYYYYYYYYYYYYYY",
+        "hinweise": "YYYYYYYYYYYY"
+    }];
 
     $scope.coupons = $localStorage.coupons;
 
@@ -247,22 +240,22 @@ function CouponCtrl($scope, $localStorage) {
         $scope.coupons.splice(index, 1);
     }
 
-    $scope.tabActivity=[true,false];
+    $scope.tabActivity = [true, false];
 
     $scope.edit = function(item) {
         console.log(item);
         $scope.coupon = item;
-        $scope.tabActivity=[false,true];
+        $scope.tabActivity = [false, true];
     }
 
 
-    $scope.resetCoupon = function () {
+    $scope.resetCoupon = function() {
         console.log("reset");
         console.log();
         $scope.coupon["titel"] = "spast";
     }
 
-    $scope.createCoupon = function () {
+    $scope.createCoupon = function() {
         console.log("createCoupon");
         console.log();
         $scope.coupon = {
@@ -294,16 +287,30 @@ function CouponCtrl($scope, $localStorage) {
 
 
     //Ort check
-    $scope.checkZielgruppeOrtOne = true;
+    $scope.checkZielgruppeOrtOne = false;
     $scope.checkZielgruppeOrtTwo = false;
 
     $scope.zielgruppeOrtOneKm = 50;
     $scope.zielgruppeOrtTwoPLZ = "66740,63798,66113";
 
     //auto check
-    $scope.checkAuto
+    $scope.checkAuto = false;
+    $scope.test123 = false;
 
-    $scope.saveCoupon = function () {
+    $scope.disabledAll = function() {
+      if(this.checkAuto === true){
+        this.checkZielgruppeUmsatzOne = false;
+        this.checkZielgruppeUmsatzTwo = false;
+        this.checkZielgruppeUmsatzThree = false;
+        this.checkZielgruppeUmsatzFour = false;
+        this.checkZielgruppeOrtOne = false;
+        this.checkZielgruppeOrtTwo = false;
+        this.disabledChecks = true;
+      }else {
+        this.disabledChecks = false;
+    }
+
+    $scope.saveCoupon = function() {
         console.log("save");
         $scope.coupon["zielgruppe"] = {
             minXBesucheInYWochen: {
@@ -339,41 +346,37 @@ function CouponCtrl($scope, $localStorage) {
             }
         }
 
-        if(doubleElement != null) {
-            $localStorage.coupons.slice($localStorage.coupons.indexOf(doubleElement),1,$scope.coupon);
-        }else {
+        if (doubleElement != null) {
+            $localStorage.coupons.slice($localStorage.coupons.indexOf(doubleElement), 1, $scope.coupon);
+        } else {
             $localStorage.coupons.push($scope.coupon);
         }
 
-        $scope.tabActivity=[true,false];
+        $scope.tabActivity = [true, false];
     }
 };
 
 function InitCtrl($localStorage, $http) {
 
     $http.get('http://85.214.84.247:3000/?pass=12domestixx34')
-        .then(function (res) {
+        .then(function(res) {
             $localStorage.profiles = res.data;
         });
 
 
     $localStorage.profile = {
         "_id": "56c4b205fb11e67a3beffde5",
-        "News": [
-            {
-                "Titel": "Tipp des Monats",
-                "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
-                "createDatum": "2016-03-28T10:03:19.395Z"
-            }
-        ],
+        "News": [{
+            "Titel": "Tipp des Monats",
+            "Beschreibung": "Tipp des Monats: Der Hut des Präsidenten. Laurain, Antoine. 20,- €  Weiterlesen: http://www.buecher-koenig-nk.de/shop/item/9783455650228",
+            "createDatum": "2016-03-28T10:03:19.395Z"
+        }],
         "Aktionen": [],
-        "Termine": [
-            {
-                "Titel": "Klaus Brabänder liest aus seinem Buch \"Für Eich\"",
-                "Datum": "2016-04-13T22:00:00.000Z",
-                "createDatum": "2016-04-22T11:45:37.249Z"
-            }
-        ],
+        "Termine": [{
+            "Titel": "Klaus Brabänder liest aus seinem Buch \"Für Eich\"",
+            "Datum": "2016-04-13T22:00:00.000Z",
+            "createDatum": "2016-04-22T11:45:37.249Z"
+        }],
         "Name": "Bücher König",
         "Strasse": "Bahnhofstr. 43",
         "PLZ": 66538,
@@ -397,7 +400,7 @@ function InitCtrl($localStorage, $http) {
  * used in Wizard view
  */
 function wizardCtrl($scope, toaster) {
-    $scope.processForm = function () {
+    $scope.processForm = function() {
 
         // toaster.success({ body:"Hi, welcome to Inspinia. This is example of Toastr notification box."});
 

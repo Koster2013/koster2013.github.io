@@ -154,7 +154,7 @@
 
 
                         <!-- Modal Zielgruppe-->
-                        <div id="myModal" class="modal fade" role="dialog">
+                        <div id="myModal" class="modal" role="dialog">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
@@ -168,20 +168,19 @@
 
                                           <div class="col-sm-12">
                                               <label class="col-sm-4 control-label">Nach Umsatz &amp; Zeit <br/>
-                                                <small class="text-navy">Custom elements</small>
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                        <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne">
+                                                        <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne" ng-checked="checkZielgruppeUmsatzOne" ng-disabled="disabledChecks">
                                                       <span>
                                                         Mindestens
-                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" ng-disabled="checkAuto"> {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" > {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
                                                         Besuche in den letzten
                                                         <a href="#" editable-text="zielgruppeUmsatzOneWochen" > {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
                                                         Wochen
                                                     </span>
                                                   </div>
-                                                    <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo">
+                                                    <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo" ng-checked="checkZielgruppeUmsatzTwo" ng-disabled="disabledChecks" >
                                                       Mindestens
                                                       <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz" > {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
                                                       Umsatz in den letzten
@@ -190,7 +189,7 @@
                                                     </span></div>
                                                     <div>
                                                       <span>
-                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree">
+                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree" ng-checked="checkZielgruppeUmsatzThree" ng-disabled="disabledChecks" >
                                                           Letzter Besuch vor
                                                           <a href="#" editable-text="zielgruppeUmsatzThreeWochen" > {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
                                                           Wochen
@@ -198,7 +197,7 @@
                                                     </div>
                                                     <div>
                                                       <span>
-                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour">
+                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour" ng-checked="checkZielgruppeUmsatzFour" ng-disabled="disabledChecks" >
                                                           Meine Follower / Kunden
                                                       </span>
                                                   </div>
@@ -208,16 +207,15 @@
 
                                             <div class="col-sm-12" style="padding-top: 15px;">
                                               <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
-                                                <small class="text-navy">Custom elements</small>
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest">
+                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest" ng-checked="checkZielgruppeOrtOne"  ng-disabled="disabledChecks" >
                                                         Im Umkreis von
                                                         <a href="#" editable-text="zielgruppeOrtOneKm" > {{ zielgruppeOrtOneKm || 'empty' }} </a>
                                                         km
                                                     </span></div>
-                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest">
+                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest" ng-checked="checkZielgruppeOrtTwo" ng-disabled="disabledChecks" >
                                                         In einem PLZ Bereich von
                                                         <a href="#" editable-text="zielgruppeOrtTwoPLZ" > {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
                                                     </span></div>
@@ -227,11 +225,10 @@
 
                                             <div class="col-sm-12" style="padding-top: 15px;">
                                               <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
-                                                <small class="text-navy">Custom elements</small>
                                               </label>
 
                                                 <div class="col-sm-8">
-                                                    <div><span> <input icheck type="checkbox" ng-model="checkAuto">
+                                                    <div><span > <input ng-change="disabledAll()"  icheck  type="checkbox" ng-model="checkAuto" >
                                                         Automatisch - Auf gut Glück
                                                     </span></div>
                                                 </div>
@@ -246,7 +243,7 @@
                             </div>
                         </div>
                         <!-- Modal Zielgruppe-->
-                        <div id="detailModal" class="modal fade" role="dialog">
+                        <div id="detailModal" class="modal" role="dialog">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
