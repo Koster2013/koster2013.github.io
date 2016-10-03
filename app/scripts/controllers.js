@@ -252,6 +252,10 @@ function CouponCtrl($scope, $localStorage, $http) {
         $scope.tabActivity = [false, true];
     }
 
+    $scope.preview = function(item) {
+        $scope.coupon = item;
+    }
+
 
     $scope.resetCoupon = function() {
         console.log("reset");

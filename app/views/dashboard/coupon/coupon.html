@@ -23,7 +23,7 @@
 
                 <uib-tabset>
 
-                  <!--Copupons verwalten ansehen -->
+                    <!--Copupons verwalten ansehen -->
                     <uib-tab active="tabActivity[0]">
                         <uib-tab-heading>
                             Coupons verwalten
@@ -34,11 +34,11 @@
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-content ibox-heading">
                                             <h3><i class="fa fa-file"></i> Aktuelle Gutscheine</h3>
-                                            <small><i class="fa fa-tim"></i> Sie haben momentan {{coupons.length}} Gutscheine </small>
+                                            <small><i class="fa fa-tim"></i> Sie haben momentan {{coupons.length}} Gutscheine</small>
                                         </div>
                                         <div class="ibox-content">
                                             <div class="feed-activity-list">
-                                                <div class="feed-element" ng-repeat="coupon in coupons track by $index" >
+                                                <div class="feed-element" ng-repeat="coupon in coupons track by $index">
                                                     <div>
                                                         <li uib-dropdown="" class="dropdown pull-right" style="list-style-type: none;">
                                                             <a class="count-info dropdown-toggle" href="" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
@@ -52,18 +52,19 @@
                                                                 </li>
                                                                 <li class="divider"></li>
                                                                 <li>
-                                                                    <a  ng-click="remove(coupon)" >
+                                                                    <a ng-click="remove(coupon)">
                                                                         <i class="fa fa-trash"></i> Coupon löschen
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a  ng-click="changeStatus(coupon)" >
+                                                                    <a ng-click="changeStatus(coupon)">
                                                                         <i class="fa fa-play"></i> Status ändern
                                                                     </a>
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        <h3> <a data-toggle="modal" data-target="#detailModal" >{{coupon.titel}} </a></h3>
+                                                        <h3><a data-toggle="modal" data-target="#detailModal" ng-click="preview(coupon)">{{coupon.titel}} </a></h3>
+
                                                         <div>{{coupon.untertitel}}</div>
                                                         <small class="text-muted"> gültig bis {{formatDate(coupon.gueltig)}}</small>
                                                         <small class="text-navy"> aktiv: {{ (coupon.aktiv === true) ? "Ja" : "Nein"}}</small>
@@ -87,9 +88,9 @@
                         <div class="panel-body">
 
                             <form class="form-horizontal " ng-submit="saveCoupon()">
-                                <div class="form-group"><label class="col-sm-2 control-label">Unternehmen</label>
+                                <div class="form-group"><label class="col-sm-2 control-label">Unternehmen <br><span class="text-navy" style="font-size: 8px; padding:0px"> Adminmodus </span></label>
 
-                                    <div class="col-sm-10"><select class="form-control m-b"  ng-model="selectedProfile" >
+                                    <div class="col-sm-10"><select class="form-control m-b" ng-model="selectedProfile">
                                         <option ng-repeat="x in couponProfiles">{{x.Name}}</option>
                                     </select>
                                     </div>
@@ -106,7 +107,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Titel</label>
 
-                                    <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.titel"  ></div>
+                                    <div class="col-sm-10"><input type="text" class="form-control" ng-model="coupon.titel"></div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
 
@@ -114,7 +115,7 @@
 
                                     <div class="col-sm-10">
                                  <textarea id="untertitel" ng-model="coupon.untertitel" name="untertitel" rows="2" type="text"
-                                           class="form-control" ng-model="coupon.untertitel" /></div>
+                                           class="form-control" ng-model="coupon.untertitel"/></div>
                                 </div>
 
                                 <div class="hr-line-dashed"></div>
@@ -125,14 +126,14 @@
                                     <div class="col-sm-4">
                                         <div class="input-group date">
                                             <input type="datetime" class="form-control" date-time ng-model="coupon.gueltig"
-                                                   view="year" auto-close="true" >
+                                                   view="year" auto-close="true">
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
                                     <label class="col-sm-2 control-label">Zielgruppe wählen</label>
 
                                     <div class="col-sm-4">
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Hier klicken!</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hier klicken!</button>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
@@ -149,7 +150,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-white" ng-click="resetCoupon()" >Zurücksetzen</button>
+                                        <button class="btn btn-white" ng-click="resetCoupon()">Zurücksetzen</button>
                                         <button class="btn btn-primary" type="submit">Speichern</button>
                                     </div>
                                 </div>
@@ -173,14 +174,23 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Details zum Coupon</h4>
+                <h4 class="modal-title">{{coupon.titel}}</h4>
             </div>
             <div class="modal-body">
-                <h1>TODO</h1>
+                <p>{{coupon.untertitel}} </p>
+
+                <p class="text-navy">Bedingungen: </p>
+
+                <p> {{coupon.bedingungen}}</p>
+
+                <p class="text-navy">Hinweise: </p>
+
+                <p> {{coupon.hinweise}}</p>
+
+                <p class="text-navy pull-right"> Gueltig bis: {{formatDate(coupon.gueltig)}} </p>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
             </div>
         </div>
     </div>
@@ -204,33 +214,33 @@
                         </label>
 
                         <div class="col-sm-8">
-                            <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne" ng-checked="checkZielgruppeUmsatzOne" ng-disabled="disabledChecks">
+                            <div><input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne" ng-checked="checkZielgruppeUmsatzOne" ng-disabled="disabledChecks">
                                                       <span>
                                                         Mindestens
-                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" > {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche"> {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
                                                         Besuche in den letzten
-                                                        <a href="#" editable-text="zielgruppeUmsatzOneWochen" > {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneWochen"> {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
                                                         Wochen
                                                     </span>
                             </div>
-                            <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo" ng-checked="checkZielgruppeUmsatzTwo" ng-disabled="disabledChecks" >
+                            <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo" ng-checked="checkZielgruppeUmsatzTwo" ng-disabled="disabledChecks">
                                                       Mindestens
-                                                      <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz" > {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz"> {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
                                                       Umsatz in den letzten
-                                                      <a href="#" editable-text="zielgruppeUmsatzTwoWochen" > {{ zielgruppeUmsatzTwoWochen || 'empty' }} </a>
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoWochen"> {{ zielgruppeUmsatzTwoWochen || 'empty' }} </a>
                                                       Wochen
                                                     </span></div>
                             <div>
                                                       <span>
-                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree" ng-checked="checkZielgruppeUmsatzThree" ng-disabled="disabledChecks" >
+                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree" ng-checked="checkZielgruppeUmsatzThree" ng-disabled="disabledChecks">
                                                           Letzter Besuch vor
-                                                          <a href="#" editable-text="zielgruppeUmsatzThreeWochen" > {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
+                                                          <a href="#" editable-text="zielgruppeUmsatzThreeWochen"> {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
                                                           Wochen
                                                       </span>
                             </div>
                             <div>
                                                       <span>
-                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour" ng-checked="checkZielgruppeUmsatzFour" ng-disabled="disabledChecks" >
+                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour" ng-checked="checkZielgruppeUmsatzFour" ng-disabled="disabledChecks">
                                                           Meine Follower / Kunden
                                                       </span>
                             </div>
@@ -243,14 +253,14 @@
                         </label>
 
                         <div class="col-sm-8">
-                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest" ng-checked="checkZielgruppeOrtOne"  ng-disabled="disabledChecks" >
+                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest" ng-checked="checkZielgruppeOrtOne" ng-disabled="disabledChecks">
                                                         Im Umkreis von
-                                                        <a href="#" editable-text="zielgruppeOrtOneKm" > {{ zielgruppeOrtOneKm || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeOrtOneKm"> {{ zielgruppeOrtOneKm || 'empty' }} </a>
                                                         km
                                                     </span></div>
-                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest" ng-checked="checkZielgruppeOrtTwo" ng-disabled="disabledChecks" >
+                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest" ng-checked="checkZielgruppeOrtTwo" ng-disabled="disabledChecks">
                                                         In einem PLZ Bereich von
-                                                        <a href="#" editable-text="zielgruppeOrtTwoPLZ" > {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
+                                                        <a href="#" editable-text="zielgruppeOrtTwoPLZ"> {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
                                                     </span></div>
                         </div>
                     </div>
@@ -261,7 +271,7 @@
                         </label>
 
                         <div class="col-sm-8">
-                            <div><span > <input ng-change="disabledAll()"  icheck  type="checkbox" ng-model="checkAuto" >
+                            <div><span> <input ng-change="disabledAll()" icheck type="checkbox" ng-model="checkAuto">
                                                          Auf gut Glück
                                                     </span></div>
                         </div>
@@ -270,7 +280,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
             </div>
         </div>
     </div>
@@ -278,8 +288,8 @@
 
 
 <script>
-    $(document).ready(function(){
-            $('.modal').removeClass('fade');
+    $(document).ready(function () {
+        $('.modal').removeClass('fade');
     });
 
 </script>
