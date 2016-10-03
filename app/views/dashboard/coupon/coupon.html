@@ -34,7 +34,7 @@
                                     <div class="ibox float-e-margins">
                                         <div class="ibox-content ibox-heading">
                                             <h3><i class="fa fa-file"></i> Aktuelle Gutscheine</h3>
-                                            <small><i class="fa fa-tim"></i> Sie haben momentan 22 Gutscheine - 16 sind aktiv</small>
+                                            <small><i class="fa fa-tim"></i> Sie haben momentan {{coupons.length}} Gutscheine </small>
                                         </div>
                                         <div class="ibox-content">
                                             <div class="feed-activity-list">
@@ -87,6 +87,13 @@
                         <div class="panel-body">
 
                             <form class="form-horizontal " ng-submit="saveCoupon()">
+                                <div class="form-group"><label class="col-sm-2 control-label">Unternehmen</label>
+
+                                    <div class="col-sm-10"><select class="form-control m-b"  ng-model="selectedProfile" >
+                                        <option ng-repeat="x in couponProfiles">{{x.Name}}</option>
+                                    </select>
+                                    </div>
+                                </div>
                                 <div class="form-group"><label class="col-sm-2 control-label">Kategorie</label>
 
                                     <div class="col-sm-10"><select ng-model="coupon.kategorie" class="form-control m-b" name="kategorie">
@@ -148,119 +155,6 @@
                                 </div>
 
                             </form>
-
-
-                        </div>
-
-
-                        <!-- Modal Zielgruppe-->
-                        <div id="myModal" class="modal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Zielgruppe wählen</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-
-                                          <div class="col-sm-12">
-                                              <label class="col-sm-4 control-label">Nach Umsatz &amp; Zeit <br/>
-                                              </label>
-
-                                                <div class="col-sm-8">
-                                                        <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne" ng-checked="checkZielgruppeUmsatzOne" ng-disabled="disabledChecks">
-                                                      <span>
-                                                        Mindestens
-                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" > {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
-                                                        Besuche in den letzten
-                                                        <a href="#" editable-text="zielgruppeUmsatzOneWochen" > {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
-                                                        Wochen
-                                                    </span>
-                                                  </div>
-                                                    <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo" ng-checked="checkZielgruppeUmsatzTwo" ng-disabled="disabledChecks" >
-                                                      Mindestens
-                                                      <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz" > {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
-                                                      Umsatz in den letzten
-                                                      <a href="#" editable-text="zielgruppeUmsatzTwoWochen" > {{ zielgruppeUmsatzTwoWochen || 'empty' }} </a>
-                                                      Wochen
-                                                    </span></div>
-                                                    <div>
-                                                      <span>
-                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree" ng-checked="checkZielgruppeUmsatzThree" ng-disabled="disabledChecks" >
-                                                          Letzter Besuch vor
-                                                          <a href="#" editable-text="zielgruppeUmsatzThreeWochen" > {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
-                                                          Wochen
-                                                      </span>
-                                                    </div>
-                                                    <div>
-                                                      <span>
-                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour" ng-checked="checkZielgruppeUmsatzFour" ng-disabled="disabledChecks" >
-                                                          Meine Follower / Kunden
-                                                      </span>
-                                                  </div>
-
-                                                </div>
-                                          </div>
-
-                                            <div class="col-sm-12" style="padding-top: 15px;">
-                                              <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
-                                              </label>
-
-                                                <div class="col-sm-8">
-                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest" ng-checked="checkZielgruppeOrtOne"  ng-disabled="disabledChecks" >
-                                                        Im Umkreis von
-                                                        <a href="#" editable-text="zielgruppeOrtOneKm" > {{ zielgruppeOrtOneKm || 'empty' }} </a>
-                                                        km
-                                                    </span></div>
-                                                    <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest" ng-checked="checkZielgruppeOrtTwo" ng-disabled="disabledChecks" >
-                                                        In einem PLZ Bereich von
-                                                        <a href="#" editable-text="zielgruppeOrtTwoPLZ" > {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
-                                                    </span></div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-12" style="padding-top: 15px;">
-                                              <label class="col-sm-4 control-label">Automatisch <br/>
-                                              </label>
-
-                                                <div class="col-sm-8">
-                                                    <div><span > <input ng-change="disabledAll()"  icheck  type="checkbox" ng-model="checkAuto" >
-                                                         Auf gut Glück
-                                                    </span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal Zielgruppe-->
-                        <div id="detailModal" class="modal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Details zum Coupon</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                          <h1>TODO</h1>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </uib-tab>
 
@@ -269,3 +163,123 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal Zielgruppe-->
+<div id="detailModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Details zum Coupon</h4>
+            </div>
+            <div class="modal-body">
+                <h1>TODO</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Zielgruppe-->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Zielgruppe wählen</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <label class="col-sm-4 control-label">Nach Umsatz &amp; Zeit <br/>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzOne" ng-checked="checkZielgruppeUmsatzOne" ng-disabled="disabledChecks">
+                                                      <span>
+                                                        Mindestens
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneBesuche" > {{ zielgruppeUmsatzOneBesuche || 'empty' }} </a>
+                                                        Besuche in den letzten
+                                                        <a href="#" editable-text="zielgruppeUmsatzOneWochen" > {{ zielgruppeUmsatzOneWochen || 'empty' }} </a>
+                                                        Wochen
+                                                    </span>
+                            </div>
+                            <div><span> <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzTwo" ng-checked="checkZielgruppeUmsatzTwo" ng-disabled="disabledChecks" >
+                                                      Mindestens
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoUmsatz" > {{ zielgruppeUmsatzTwoUmsatz || 'empty' }} </a>
+                                                      Umsatz in den letzten
+                                                      <a href="#" editable-text="zielgruppeUmsatzTwoWochen" > {{ zielgruppeUmsatzTwoWochen || 'empty' }} </a>
+                                                      Wochen
+                                                    </span></div>
+                            <div>
+                                                      <span>
+                                                          <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzThree" ng-checked="checkZielgruppeUmsatzThree" ng-disabled="disabledChecks" >
+                                                          Letzter Besuch vor
+                                                          <a href="#" editable-text="zielgruppeUmsatzThreeWochen" > {{ zielgruppeUmsatzThreeWochen || 'empty' }} </a>
+                                                          Wochen
+                                                      </span>
+                            </div>
+                            <div>
+                                                      <span>
+                                                        <input icheck type="checkbox" ng-model="checkZielgruppeUmsatzFour" ng-checked="checkZielgruppeUmsatzFour" ng-disabled="disabledChecks" >
+                                                          Meine Follower / Kunden
+                                                      </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="padding-top: 15px;">
+                        <label class="col-sm-4 control-label">Nach Ort &amp; Umgebung <br/>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtOne" name="radioTest" ng-checked="checkZielgruppeOrtOne"  ng-disabled="disabledChecks" >
+                                                        Im Umkreis von
+                                                        <a href="#" editable-text="zielgruppeOrtOneKm" > {{ zielgruppeOrtOneKm || 'empty' }} </a>
+                                                        km
+                                                    </span></div>
+                            <div><span> <input icheck type="radio" ng-model="checkZielgruppeOrtTwo" name="radioTest" ng-checked="checkZielgruppeOrtTwo" ng-disabled="disabledChecks" >
+                                                        In einem PLZ Bereich von
+                                                        <a href="#" editable-text="zielgruppeOrtTwoPLZ" > {{ zielgruppeOrtTwoPLZ || 'empty' }} </a>
+                                                    </span></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12" style="padding-top: 15px;">
+                        <label class="col-sm-4 control-label">Automatisch <br/>
+                        </label>
+
+                        <div class="col-sm-8">
+                            <div><span > <input ng-change="disabledAll()"  icheck  type="checkbox" ng-model="checkAuto" >
+                                                         Auf gut Glück
+                                                    </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Speichern</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+            $('.modal').removeClass('fade');
+    });
+
+</script>

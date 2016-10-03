@@ -115,8 +115,12 @@ function WindowCreateCtrl($scope, $localStorage) {
 };
 
 
-function CouponCtrl($scope, $localStorage) {
+function CouponCtrl($scope, $localStorage, $http) {
 
+    $http.get('http://85.214.84.247:3000/?pass=12domestixx34')
+        .then(function(res) {
+            $scope.couponProfiles = res.data;
+        });
 
     $localStorage.coupons = [{
         "kategorie": "Extrapunkte",
@@ -252,8 +256,9 @@ function CouponCtrl($scope, $localStorage) {
     $scope.resetCoupon = function() {
         console.log("reset");
         console.log();
-        $scope.coupon["titel"] = "spast";
+        $scope.coupon["titel"] = "edede";
     }
+
 
     $scope.createCoupon = function() {
         console.log("createCoupon");
@@ -313,6 +318,8 @@ function CouponCtrl($scope, $localStorage) {
 
     $scope.saveCoupon = function() {
         console.log("save");
+        console.log(this.selectedProfile);
+        var selectedCouponProfile = this.selectedProfile;
         $scope.coupon["zielgruppe"] = {
             minXBesucheInYWochen: {
                 auswahl: this.checkZielgruppeUmsatzOne,
@@ -352,6 +359,36 @@ function CouponCtrl($scope, $localStorage) {
         } else {
             $localStorage.coupons.push($scope.coupon);
         }
+
+
+        angular.forEach($scope.couponProfiles, function(value, key) {
+            if (value.Name === selectedCouponProfile) {
+
+                value.News.push({
+                    "Titel": $scope.coupon.titel + Date.now(),
+                    "Beschreibung": $scope.coupon.untertitel,
+                    "createDatum": new Date()
+                });
+
+                $http({
+                    url: 'http://85.214.84.247:3000/',
+                    method: "POST",
+                    data: {
+                        pass: "12domestixx34",
+                        data: $scope.couponProfiles
+                    }
+                })
+                    .then(function(response) {
+                        alert("success");
+                    },
+                    function(response) { // optional
+                        alert("failed");
+                    });
+            }
+        });
+
+
+
 
         $scope.tabActivity = [true, false];
     }
